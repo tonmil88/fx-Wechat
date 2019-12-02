@@ -35,6 +35,11 @@ Page({
         "columnName": "修改密码"
       },
       {
+        "url": "../news/post",
+        "iconPath": "../../icons/star.png",
+        "columnName": "文章发布"
+      },
+      {
         "url": "../member/comment",
         "iconPath": "../../icons/star.png",
         "columnName": "文章评论"

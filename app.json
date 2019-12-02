@@ -11,7 +11,9 @@
     "pages/news/list",
     "pages/news/show",
     "pages/news/post",
-    "pages/news/comment"
+    "pages/news/comment",
+    "pages/anli/list",
+    "pages/anli/show"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,8 +39,8 @@
         "selectedIconPath": "icons/news-on.png"
       },
       {
-        "pagePath": "pages/news/post",
-        "text": "发布",
+        "pagePath": "pages/anli/list",
+        "text": "案例",
         "iconPath": "icons/news.png",
         "selectedIconPath": "icons/news-on.png"
       },
