@@ -57,7 +57,7 @@ Page({
       url: http_url + "&page=" + pageid,
       method: 'GET',
       success: function(res) {
-        console.log(res);
+        // console.log(res);
         wx.hideLoading();
         var oldData = self.data.listData;
         if (res.data.code == 1) {

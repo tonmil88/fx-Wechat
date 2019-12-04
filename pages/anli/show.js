@@ -2,7 +2,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 var app = getApp();
 
-var http_url = app.globalData.http_api + "&param=list action=content module=anli id=";
+var http_url = app.globalData.http_api + "&function=dr_my_list2&param=list action=content module=anli id=";
 
 var member_url = app.globalData.member_api;
  
@@ -14,9 +14,18 @@ Page({
       supports: 0,
       upsImg:"../../icons/ups.png",
       collectImg:"../../icons/collect.png",
-  },
-  onLoad:function(options){
 
+      background: [],
+      index:"",
+      indicatorDots: true,
+      vertical: false,
+      autoplay: false,
+      interval: 2000,
+      duration: 500
+  },
+  
+  onLoad:function(options){
+      console.log(options);
       app.showModel();
       var self=this;
       wx.request({
@@ -28,11 +37,12 @@ Page({
         method: 'GET',
         success: function (res) {
 
-
+         
           if (res.data.code == 1) {
 
             for (var i in res.data.return) {//不使用过滤
               var c = res.data.return[i];
+              console.log(c.images);
             }
 
             // 格式化案例内容
@@ -43,6 +53,7 @@ Page({
 
             self.setData({
               content: c,
+              background:c.images,
               id: options.id
             })
             wx.hideToast();

@@ -1,29 +1,9 @@
-
-
-<view class="view-postion">
-<view class="anli-title">
-  {{content.title}}
- <view>
- <text class="anli-ctime">{{content.inputtime}}</text>
- <text class="anli-local">{{content.cat.name}}</text>
- <text class="anli-count">浏览{{content.hits}}次</text>
- </view>
+<view class="container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" easing-function="easeInCubic">
+    <block wx:for="{{background}}" wx:key="*this" >
+      <swiper-item>
+        <view class="swiper-item {{item}}"><image src="{{background[index].file}}" /></view>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
-
-<view class="anli-zw">
-    <import src="../../wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:data.nodes}}" />
-</view>
-</view>
-
-<view class="pl-bar">
-
-   
-    <view  class="pl-flex" bindtap="collect">
-     <image src="{{collectImg}}"></image>
-    </view>
-</view>
-
-
-
-
