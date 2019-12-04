@@ -1,26 +1,27 @@
 <scroll-view class="anli-item" scroll-y="true">
-<block wx:for="{{listData}}" wx:for-item="anli" wx:key="ek">
-   <navigator url="../anli/show?id={{anli.id}}">
-   <view class="anli-view">
-      <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"/>
-     <image class="avatar" src="{{anli.avatar}}" wx:if="{{anli.avatar!=''}}"/>
-     <view class="anli-content">
-             <view class="anli-desiner">
-                <span>设计师：怀宇英</span>
-                <span>现代简约</span>
-             </view>     
-             <view class="anli-area">
-                <span>200.00m²</span>
-                <span>12万</span>
-             </view> 
-     </view>
-     <view class="anli-title">{{anli.title}}</view>
-   </view>
-   </navigator>
-   </block>
+  <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
+    <navigator url="../anli/show?id={{anli.id}}">
+      <view class="anli-view">
+        <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}" />
+        <image class="avatar" src="{{anli.avatar}}" wx:if="{{anli.avatar!=''}}" />
+        <view class="anli-content">
+          <view class="anli-desiner">
+            <span>设计师：{{anli.stylist_name}}</span>
+            <span>{{anli.style_name}}</span>
+          </view>
+          <view class="anli-area">
+            <span>200.00m²</span>
+            <span>12万</span>
+          </view>
+        </view>
+        <view class="anli-title">{{anli.title}}</view>
+      </view>
+    </navigator>
+  </block>
 </scroll-view>
 
 <view class="pl-bottom">
-<view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}"><image src="../../icons/waiting.gif" /> 正在加载....</view>
-<view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
+  <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
+    <image src="../../icons/waiting.gif" /> 正在加载....</view>
+  <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
 </view>

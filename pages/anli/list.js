@@ -1,6 +1,6 @@
 var app = getApp(); //获取app
 
-var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=anli page=1 pagesize=10";
+var http_url = app.globalData.http_api + "&function=dr_my_list2&param=list action=module module=anli page=1 pagesize=10";
 
 Page({
 
@@ -44,6 +44,9 @@ Page({
   onReachBottom: function() {
 
     app.showModel();
+    wx.showLoading({
+      title: '正在玩命加载中',
+    })
     this.setData({
       hidden: false
     });
@@ -56,6 +59,7 @@ Page({
       success: function(res) {
         console.log(res);
         wx.hideLoading();
+        var oldData = self.data.listData;
         if (res.data.code == 1) {
           if (res.data.return.length == 0) {
             self.setData({
@@ -70,7 +74,7 @@ Page({
             }, 900)
           } else {
             self.setData({
-              listData: res.data.return,
+              listData: oldData.concat(res.data.return),
               hidden: true,
               page: pageid
             });
