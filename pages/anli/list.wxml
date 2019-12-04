@@ -1,26 +1,20 @@
 <scroll-view class="anli-item" scroll-y="true">
-<block wx:for="{{listData}}" wx:for-item="anli">
+<block wx:for="{{listData}}" wx:for-item="anli" wx:key="ek">
    <navigator url="../anli/show?id={{anli.id}}">
    <view class="anli-view">
-     <image src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"/>
+      <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"/>
+     <image class="avatar" src="{{anli.avatar}}" wx:if="{{anli.avatar!=''}}"/>
      <view class="anli-content">
-             <view class="anli-title">
-             {{anli.title}}
-             </view>           
-           <view class="pos">
-                <view class="anli-time">{{anli.inputtime}}</view>
-                <view class="fr">
-                  <view class="anli-see">
-                  <image src="../../icons/see.png" />
-                  {{anli.hits}}
-                  </view>
-                  <view class="anli-pl">
-                  <image src="../../icons/message.png" />
-                  {{anli.comments}}
-                  </view>
-                </view>
-            </view>
+             <view class="anli-desiner">
+                <span>设计师：怀宇英</span>
+                <span>现代简约</span>
+             </view>     
+             <view class="anli-area">
+                <span>200.00m²</span>
+                <span>12万</span>
+             </view> 
      </view>
+     <view class="anli-title">{{anli.title}}</view>
    </view>
    </navigator>
    </block>
