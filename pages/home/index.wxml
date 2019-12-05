@@ -1,7 +1,7 @@
 <view class="index-body">
 
 <swiper class="index-banner" indicator-dots="true" autoplay="true" interval="5000" indicator-color="#fff" indicator-active-color="#e7505a" >
-<block wx:for="{{banners}}" wx:key="12">
+<block wx:for="{{banners}}" wx:key="index">
     <swiper-item>
       <image src="{{item}}" class="slide-image" />
     </swiper-item>
@@ -9,7 +9,7 @@
 </swiper>
 
 <view class="index-icons">
-    <view class="flex-item" wx:for="{{icons}}" wx:key="12">
+    <view class="flex-item" wx:for="{{icons}}" wx:key="index">
     <navigator url="{{item.url}}">
       <image class='image-icon' src="{{item.icon}}" />
       <view class='text-icon'>{{item.name}}</view>
@@ -22,7 +22,7 @@
   <view class="index-row-index">最新新闻</view>
   <view class="fabu-row">
     
-    <block wx:for="{{fabuData}}" wx:for-item="news" wx:key="11">
+    <block wx:for="{{fabuData}}" wx:for-item="news" wx:key="index">
    <navigator url="../news/show?id={{news.id}}">
    <view class="news-view">
      <image class='news-thumb' src="{{news.thumb}}" wx:if="{{news.thumb!=''}}"/>
