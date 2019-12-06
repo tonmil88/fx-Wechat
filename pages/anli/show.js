@@ -15,7 +15,7 @@ Page({
       upsImg:"../../icons/ups.png",
       collectImg:"../../icons/collect.png",
 
-      background: [],
+      anlitu: [],
       index:"",
       indicatorDots: true,
       vertical: false,
@@ -53,7 +53,7 @@ Page({
 
             self.setData({
               content: c,
-              background:c.images,
+              anlitu:c.images,
               id: options.id
             })
             wx.hideToast();

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag: true,
+    flag: false,
     lx: "",
     hx: "",
     mj: "",
@@ -13,21 +13,21 @@ Page({
     fg: "",
     shuaixuan: [],
     leixing: [
-      { value: "不限", name: "不限" },
+      { value: "", name: "不限"},
       { value: "家装", name: "家装" },
       { value: "公装", name: "公装" },
       { value: "别墅", name: "别墅" },
       { value: "店铺", name: "店铺" },
     ],
     huxing: [
-      { value: "不限", name: "不限" },
+      { value: "", name: "不限" },
       { value: "一居室", name: "一居室" },
       { value: "二居室", name: "二居室" },
       { value: "三居室", name: "三居室" },
       { value: "四居室", name: "四居室" },
     ],
     mianji: [
-      { value: "不限", name: "不限" },
+      { value: "", name: "不限" },
       { value: "0,60", name: "60m²以下" },
       { value: "60,80", name: "60-80㎡" },
       { value: "80,100", name: "80-100㎡" },
@@ -36,14 +36,14 @@ Page({
       { value: "180,0", name: "180㎡以上" },
     ],
     yusuan: [
-      { value: "不限", name: "不限" },
-      { value: "0,50000", name: "5万以下" },
-      { value: "50000,80000", name: "5-8万" },
-      { value: "80000,150000", name: "8-15万" },
-      { value: "150000,0", name: "15万以上" },
+      { value: "", name: "不限" },
+      { value: "0,5", name: "5万以下" },
+      { value: "5,8", name: "5-8万" },
+      { value: "8,15", name: "8-15万" },
+      { value: "15,0", name: "15万以上" },
     ],
     fengge: [
-      { value: "不限", name: "不限" },
+      { value: "", name: "不限" },
       { value: "现代简约", name: "现代简约" },
       { value: "美式", name: "美式" },
       { value: "新中式", name: "新中式" },
@@ -59,31 +59,31 @@ Page({
     this.setData({
       lx: e.detail.value
     })
-    console.log(e.detail.value);
+    console.log('装修类型为：',e.detail.value);
   },
   radioChange_huxing: function (e) {
     this.setData({
       hx: e.detail.value
     })
-    console.log(e.detail.value);
+    console.log('装修户型为：',e.detail.value);
   },
   radioChange_mianji: function (e) {
     this.setData({
       mj: e.detail.value
     })
-    console.log(e.detail.value);
+    console.log('装修面积为：',e.detail.value);
   },
   radioChange_yusuan: function (e) {
     this.setData({
       ys: e.detail.value
     })
-    console.log(e.detail.value);
+    console.log('装修预算为：',e.detail.value);
   },
   radioChange_fengge: function (e) {
     this.setData({
       fg: e.detail.value
     })
-    console.log(e.detail.value);
+    console.log('装修风格为：',e.detail.value);
   },
   sure: function () {
     var shuaixuan = this.data.shuaixuan;
@@ -94,24 +94,25 @@ Page({
     shuaixuan.push(this.data.fg);
     console.log(this.data.shuaixuan)
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-  // showMenu:function(){
-  //   var flag = this.data.flag;
-  //   if(flag){
-  //     this.setData({
-  //       flag:false
-  //     })
-  //   }else{
-  //     this.setData({
-  //       flag:true
-  //     })
-  //   }
-  // },
+  showMenu:function(){
+    var flag = this.data.flag;
+    if(flag){
+      this.setData({
+        flag:false
+      })
+    }else{
+      this.setData({
+        flag:true
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

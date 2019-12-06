@@ -1,85 +1,15 @@
-.anview-shaixuan {
-  width: 100%;
-  height: 1000rpx;
-}
-
-.search {
-  height: 60rpx;
-  background-color: #f3f3f3;
-  padding: 10rpx 40rpx;
-  line-height: 60rpx;
-  font-size: 32rpx;
-  font-weight: 600;
-  border-bottom: 1rpx solid #ff552e;
-}
-
-scroll-view {
-  height:calc(100% - 60rpx);
-}
-
-.dropdown-menu {
-  width: 100%;
-  height: 100%;
-  padding:20rpx 10rpx 10rpx;
-  box-sizing: border-box;
-}
-
-.input-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 40rpx;
-}
-
-.input-group input {
-  width: 74%;
-  height: 60rpx;
-  border: 1rpx solid #ccc;
-  text-indent: 20rpx;
-}
-
-.input-group .input-group-btn .btn {
-  width: 100rpx;
-  font-size: 24rpx;
-  height: 62rpx;
-  line-height: 60rpx;
-  text-align: center;
-  background-color: #ff552e;
-}
-
-.out_line {
-  box-sizing: border-box;
-}
-
-.out_line .line_left {
-  float: left;
-  width: 100rpx;
-  text-align: center;
-  font-size: 32rpx;
-  font-weight: 600;
-}
-
-.out_line .line_right {
-  float: left;
-  width: calc(100% - 100rpx);
-  font-size: 30rpx;
-}
-
-.out_line .line_right .weui-cell__bd {
-  display: inline-block;
-  padding: 10rpx;
-  margin: 0 14rpx 30rpx;
-  border: 1rpx solid #ff552e;
-}
-.weui-cell__hd{
-  display: none;
-}
-
-.out_line .clear {
-  clear: both;
-}
-button{
-  background-color:  #ff552e;
-  margin-top: 20rpx;
-}
+.anview-shaixuan{width: 100%;height: 100vh;}
+.search{height: 60rpx;background-color: #f3f3f3;padding: 10rpx 40rpx;line-height: 60rpx;font-size: 32rpx;font-weight: 600;border-bottom: 1rpx solid #ff552e;}
+scroll-view{/* height:calc(100% - 60rpx);*/}
+.dropdown-menu{width: 100%;height: 100%;padding:20rpx 10rpx 10rpx;box-sizing: border-box; }
+.input-group{display: flex;align-items: center;justify-content: center;width: 100%;margin-bottom: 40rpx;}
+.input-group input{width: 74%;height: 60rpx;border: 1rpx solid #ccc;text-indent: 20rpx;}
+.input-group .input-group-btn .btn{width: 100rpx;font-size: 24rpx;height: 62rpx;line-height: 60rpx;text-align: center;background-color: #ff552e;}
+.out_line{box-sizing: border-box;}
+.out_line .line_left{float: left;width: 100rpx;text-align: center;font-size: 32rpx;font-weight: 600;}
+.out_line .line_right{float: left;width: calc(100% - 100rpx);font-size: 30rpx;}
+.out_line .line_right .weui-cell__bd{display: inline-block;padding: 10rpx;margin: 0 14rpx 30rpx;border: 1rpx solid #ff552e;}
+.weui-cell__hd{display: none;}
+.weui-cell__bd.active{background-color: #ff552e;color: #fff;}
+.out_line .clear{clear: both;}
+button{background-color: #ff552e;margin-top: 20rpx;}

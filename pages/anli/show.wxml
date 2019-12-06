@@ -1,8 +1,9 @@
 <view class="container">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" easing-function="easeInCubic">
-    <block wx:for="{{background}}" wx:key="*this" >
+    <block wx:for="{{anlitu}}" wx:key="*this" >
       <swiper-item>
-        <view class="swiper-item {{item}}"><image src="{{background[index].file}}" /></view>
+        <view class="swiper-item {{item}}"><image src="{{anlitu[index].file}}" /></view>
+        <p></p>
       </swiper-item>
     </block>
   </swiper>
