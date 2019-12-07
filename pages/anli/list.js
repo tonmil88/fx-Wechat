@@ -18,6 +18,13 @@ Page({
     mj: "",
     ys: "",
     fg: "",
+    kw: "",
+    m_lx: "",
+    m_hx: "",
+    m_mj: "",
+    m_ys: "",
+    m_fg: "",
+    m_kw: "",
     shuaixuan: "",
     leixing: [
       { value: "", name: "不限" },
@@ -63,34 +70,76 @@ Page({
     ]
   },
   radioChange_leixing: function (e) {
+    var items = this.data.leixing;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      if(items[i].value === e.detail.value){
+        var m_lx = items[i].name;
+      }
+    }
     this.setData({
-      lx: e.detail.value
+      lx: e.detail.value,
+      m_lx: m_lx,
     })
     console.log('装修类型为：', e.detail.value);
   },
   radioChange_huxing: function (e) {
+    var items = this.data.huxing;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      if (items[i].value === e.detail.value) {
+        var m_hx = items[i].name;
+      }
+    }
     this.setData({
-      hx: e.detail.value
+      hx: e.detail.value,
+      m_hx: m_hx
     })
     console.log('装修户型为：', e.detail.value);
   },
   radioChange_mianji: function (e) {
+    var items = this.data.mianji;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      if (items[i].value === e.detail.value) {
+        var m_mj = items[i].name;
+      }
+    }
     this.setData({
-      mj: e.detail.value
+      mj: e.detail.value,
+      m_mj: m_mj
     })
     console.log('装修面积为：', e.detail.value);
   },
   radioChange_yusuan: function (e) {
+    var items = this.data.yusuan;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      if (items[i].value === e.detail.value) {
+        var m_ys = items[i].name;
+      }
+    }
     this.setData({
-      ys: e.detail.value
+      ys: e.detail.value,
+      m_ys: m_ys
     })
     console.log('装修预算为：', e.detail.value);
   },
   radioChange_fengge: function (e) {
+    var items = this.data.fengge;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      if (items[i].value === e.detail.value) {
+        var m_fg = items[i].name;
+      }
+    }
     this.setData({
-      fg: e.detail.value
+      fg: e.detail.value,
+      m_fg: m_fg
     })
     console.log('装修风格为：', e.detail.value);
+  },
+  radioChange_keyword: function (e) {
+    this.setData({
+      kw: e.detail.value,
+      m_kw: e.detail.value//kw
+    })
+    console.log('关键词为：', e.detail.value);
   },
   showMenu: function () {
     var flag = this.data.flag;
@@ -106,26 +155,44 @@ Page({
   },
   sure: function () {
     var shuaixuan = this.data.shuaixuan;
+    var m_lx = "";
+    var m_hx = "";
+    var m_mj = "";
+    var m_ys = "";
+    var m_fg = "";
+    var m_kw = "";
     if (this.data.lx){
      // shuaixuan.push(this.data.lx);
       var shuaixuan = shuaixuan + " leixing=" + this.data.lx;
+      var m_lx = this.data.m_lx + "，";
     }
     if (this.data.hx) {
       var shuaixuan = shuaixuan + " huxing=" + this.data.hx;
+      var m_hx = this.data.m_hx + "，";
     }
     if (this.data.mj) {
       var shuaixuan = shuaixuan + " BEWTEEN_area=" + this.data.mj;
+      var m_mj = this.data.m_mj + "，";
     }
     if (this.data.ys) {
       var shuaixuan = shuaixuan + " BEWTEEN_price=" + this.data.ys;
+      var m_ys = this.data.m_ys + "，";
     }
     if (this.data.fg) {
-      var shuaixuan = shuaixuan + " LIKE_style=%" + this.data.fg +"%";
+      var shuaixuan = shuaixuan + " LIKE_style=%" + this.data.fg + "%";
+      var m_fg = this.data.m_fg + "，";
+    }
+    if (this.data.kw) {
+      var shuaixuan = shuaixuan + " LIKE_title=%" + this.data.kw + "%";
+      var m_kw = "["+this.data.m_kw + "]，";
     }
     console.log(shuaixuan);
     this.data.flag = false;
     app.showModel();
     var self = this;
+    self.setData({
+      shuaixuan: m_lx + m_hx + m_mj + m_ys + m_fg + m_kw,
+    });
     wx.request({
       url: http_url + shuaixuan,
       method: 'GET',
@@ -192,9 +259,10 @@ Page({
     });
     var self = this;
     var pageid = self.data.page + 1;
+    var shuaixuan = this.data.shuaixuan;
 
     wx.request({
-      url: http_url + "&page=" + pageid,
+      url: http_url + shuaixuan + "&page=" + pageid,
       method: 'GET',
       success: function(res) {
         // console.log(res);

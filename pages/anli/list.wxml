@@ -1,24 +1,20 @@
 <!-- 筛选 开始-->
 
   <view class="btn search dropdown-toggle" data-toggle="dropdown" bindtap="showMenu">
-    筛选：
+    筛选：<span>{{shuaixuan}}</span>
     <i class="fa fa-angle-down"></i>
   </view>
-  <scroll-view scroll-y="true" wx:if="{{flag}}">
+  <scroll-view class="sx" scroll-y="true" wx:if="{{flag}}">
+    <view class="sxbj" bindtap="showMenu"></view>
     <view class="dropdown-menu" role="menu">
-      <view class="input-group news-search-param-keyword">
-        <input type="text" placeholder="输入关键字搜索" value="" id="dr_search_keyword" class="form-control"></input>
-        <span class="input-group-btn">
-          <view class="btn default" oncviewck="searchByClass()" type="button">
-            <i class="fa fa-search"></i>搜索
-          </view>
-        </span>
+      <view class="input-group ">
+        <input type="text" placeholder="输入关键字搜索" value="" bindchange="radioChange_keyword" data-field="kw"  class="form-control"></input>
       </view>
       <view class="out_line">
         <view class="line_left">类型:</view>
         <view class="line_right nav0">
           <radio-group bindchange="radioChange_leixing">
-            <label class="weui-cell weui-check__label" wx:for="{{leixing}}" wx:key="{{item.value}}">
+            <label class="weui-cell weui-check__label" wx:for="{{leixing}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
                 <radio value="{{item.value}}" checked="true" />
               </view>
@@ -32,9 +28,9 @@
       <view class="out_line">
         <view class="line_left">户型:</view>
         <view class="line_right nav1">
-          <radio-group bindchange="radioChange_huxing">
-            <label class="weui-cell weui-check__label" wx:for="{{huxing}}" wx:key="{{item.value}}">
-              <view class="weui-cell__hd">
+          <radio-group bindchange="radioChange_huxing" >
+            <label class="weui-cell weui-check__label" wx:for="{{huxing}}" wx:key="{{item.value}}" >
+              <view class="weui-cell__hd" >
                 <radio value="{{item.value}}" checked="true" />
               </view>
               <view class="weui-cell__bd {{hx==item.value?'active':''}}">{{item.name}}</view>
@@ -47,7 +43,7 @@
         <view class="line_left">面积:</view>
         <view class="line_right nav2">
           <radio-group bindchange="radioChange_mianji">
-            <label class="weui-cell weui-check__label" wx:for="{{mianji}}" wx:key="{{item.value}}">
+            <label class="weui-cell weui-check__label" wx:for="{{mianji}}" wx:key="{{item.value}}" data-field="{{item.name}}" >
               <view class="weui-cell__hd">
                 <radio value="{{item.value}}" checked="true" />
               </view>
@@ -61,7 +57,7 @@
         <view class="line_left">预算:</view>
         <view class="line_right nav3">
           <radio-group bindchange="radioChange_yusuan">
-            <label class="weui-cell weui-check__label" wx:for="{{yusuan}}" wx:key="{{item.value}}">
+            <label class="weui-cell weui-check__label" wx:for="{{yusuan}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
                 <radio value="{{item.value}}" checked="true" />
               </view>
@@ -75,7 +71,7 @@
         <view class="line_left">风格:</view>
         <view class="line_right nav4">
           <radio-group bindchange="radioChange_fengge">
-            <label class="weui-cell weui-check__label" wx:for="{{fengge}}" wx:key="{{item.value}}">
+            <label class="weui-cell weui-check__label" wx:for="{{fengge}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
                 <radio value="{{item.value}}" checked="true" />
               </view>
