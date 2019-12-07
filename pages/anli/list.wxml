@@ -1,14 +1,13 @@
 <!-- 筛选 开始-->
 
   <view class="btn search dropdown-toggle" data-toggle="dropdown" bindtap="showMenu">
-    筛选：<span>{{shuaixuan}}</span>
-    <i class="fa fa-angle-down"></i>
+    <image class="kind-list-img" src="../../images/form.png"></image>筛选：<span>{{shuaixuan}}</span>
   </view>
   <scroll-view class="sx" scroll-y="true" wx:if="{{flag}}">
     <view class="sxbj" bindtap="showMenu"></view>
     <view class="dropdown-menu" role="menu">
       <view class="input-group ">
-        <input type="text" placeholder="输入关键字搜索" value="" bindchange="radioChange_keyword" data-field="kw"  class="form-control"></input>
+        <input type="text" placeholder="输入关键字搜索" value="{{m_kw}}" bindchange="radioChange_keyword" data-field="kw"  class="form-control"></input>
       </view>
       <view class="out_line">
         <view class="line_left">类型:</view>
@@ -16,7 +15,7 @@
           <radio-group bindchange="radioChange_leixing">
             <label class="weui-cell weui-check__label" wx:for="{{leixing}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="true" />
+                <radio value="{{item.value}}" checked="" />
               </view>
               <view class="weui-cell__bd {{lx==item.value?'active':''}}">{{item.name}}</view>
             </label>
@@ -31,7 +30,7 @@
           <radio-group bindchange="radioChange_huxing" >
             <label class="weui-cell weui-check__label" wx:for="{{huxing}}" wx:key="{{item.value}}" >
               <view class="weui-cell__hd" >
-                <radio value="{{item.value}}" checked="true" />
+                <radio value="{{item.value}}" checked="" />
               </view>
               <view class="weui-cell__bd {{hx==item.value?'active':''}}">{{item.name}}</view>
             </label>
@@ -45,7 +44,7 @@
           <radio-group bindchange="radioChange_mianji">
             <label class="weui-cell weui-check__label" wx:for="{{mianji}}" wx:key="{{item.value}}" data-field="{{item.name}}" >
               <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="true" />
+                <radio value="{{item.value}}" checked="" />
               </view>
               <view class="weui-cell__bd {{mj==item.value?'active':''}}">{{item.name}}</view>
             </label>
@@ -59,7 +58,7 @@
           <radio-group bindchange="radioChange_yusuan">
             <label class="weui-cell weui-check__label" wx:for="{{yusuan}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="true" />
+                <radio value="{{item.value}}" checked="" />
               </view>
               <view class="weui-cell__bd {{ys==item.value?'active':''}}">{{item.name}}</view>
             </label>
@@ -73,7 +72,7 @@
           <radio-group bindchange="radioChange_fengge">
             <label class="weui-cell weui-check__label" wx:for="{{fengge}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="true" />
+                <radio value="{{item.value}}" checked="" />
               </view>
               <view class="weui-cell__bd {{fg==item.value?'active':''}}">{{item.name}}</view>
             </label>

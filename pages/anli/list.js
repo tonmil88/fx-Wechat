@@ -47,14 +47,14 @@ Page({
       { value: "80,100", name: "80-100㎡" },
       { value: "100,120", name: "100-120㎡" },
       { value: "120,180", name: "120-180㎡" },
-      { value: "180,0", name: "180㎡以上" },
+      { value: "180,99999999", name: "180㎡以上" },
     ],
     yusuan: [
       { value: "", name: "不限" },
       { value: "0,5", name: "5万以下" },
       { value: "5,8", name: "5-8万" },
       { value: "8,15", name: "8-15万" },
-      { value: "15,0", name: "15万以上" },
+      { value: "15,99999", name: "15万以上" },
     ],
     fengge: [
       { value: "", name: "不限" },
@@ -191,7 +191,7 @@ Page({
     app.showModel();
     var self = this;
     self.setData({
-      shuaixuan: m_lx + m_hx + m_mj + m_ys + m_fg + m_kw,
+      shuaixuan: m_kw+m_lx + m_hx + m_mj + m_ys + m_fg ,
     });
     wx.request({
       url: http_url + shuaixuan,
@@ -207,10 +207,14 @@ Page({
           });
         } else {
           console.log(res.data.msg);
+          self.setData({
+            listData: res.data.return,
+            page: 1,
+            flag: true
+          });
           wx.showModal({
             showCancel: false,
             content: res.data.msg,
-            
           })
         }
       }
