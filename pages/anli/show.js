@@ -77,6 +77,8 @@ Page({
   //  },
 
 
+
+
    collect: function (){//收藏
      var self =this;
      wx.request({
