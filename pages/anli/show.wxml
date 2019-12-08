@@ -1,8 +1,11 @@
-<view class="container">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" easing-function="easeInCubic">
-    <block wx:for="{{anlitu}}" wx:key="*this" >
+<view class="container-detail">
+  <view class="detail-info">{{current+1}}/{{anlitu.length}}</view>
+  <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" easing-function="easeInCubic" bindchange="changeCurrent">
+    <block wx:for="{{anlitu}}" wx:key="*this">
       <swiper-item>
-        <view class="swiper-item {{item}}"><image src="{{anlitu[index].file}}" /></view>
+        <view class="swiper-item {{item}}">
+          <image src="{{item.file}}" />
+        </view>
         <p></p>
       </swiper-item>
     </block>

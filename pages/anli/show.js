@@ -21,7 +21,8 @@ Page({
       vertical: false,
       autoplay: false,
       interval: 2000,
-      duration: 500
+      duration: 500,
+      current:0 //轮播图下标
   },
   
   onLoad:function(options){
@@ -69,14 +70,17 @@ Page({
         }
       })
   },
+  changeCurrent: function (e) {//监听并获取轮播图下标
+    this.setData({
+      current: e.detail.current   //获取当前轮播图片的下标
+    })
+  },
   //  getCommentList:function(){//评论跳转
 
   //     wx.navigateTo({
   //       url: '../anli/comment?id='+this.data.content.id
   //    })
   //  },
-
-
 
 
    collect: function (){//收藏
