@@ -1,6 +1,6 @@
 var app = getApp(); //获取app
 
-var http_url = app.globalData.http_api + "&function=dr_my_list2&param=list action=module module=anli page=1 pagesize=10";
+var http_url = app.globalData.http_api + "&function=dr_my_list2&param=list action=module module=anli field=id,title,price,area,style,stylist,thumb page=1 pagesize=10";
 
 Page({
 
