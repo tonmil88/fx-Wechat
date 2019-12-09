@@ -4,7 +4,7 @@ var http_url = app.globalData.http_api + "&function=dr_my_list2&param=list actio
 
 Page({
 
-  /**
+  /** 
    * 页面的初始数据
    */
   data: {
