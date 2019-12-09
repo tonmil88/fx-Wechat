@@ -1,4 +1,4 @@
-<view class="container-detail">
+<view class="container-anli-detail">
   <view class="detail-info">{{current+1}}/{{anlitu.length}}</view>
   <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" easing-function="easeInCubic" bindchange="changeCurrent">
     <block wx:for="{{anlitu}}" wx:key="*this">
@@ -6,7 +6,10 @@
         <view class="swiper-item {{item}}">
           <image src="{{item.file}}" />
         </view>
-        <p></p>
+        <view class="anli-detail-content" style="color:white;padding:40rpx 20rpx;">
+          <span class=".anli-detail-content-tilte">{{item.title}}</span>
+          <span class=".anli-detail-content-discribe">{{item.des}}</span>
+        </view>
       </swiper-item>
     </block>
   </swiper>
