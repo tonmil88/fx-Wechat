@@ -13,8 +13,7 @@
     "pages/news/post",
     "pages/news/comment",
     "pages/anli/list",
-    "pages/anli/show",
-    "pages/shuaixuan/shuaixuan"
+    "pages/anli/show"
   ],
   "window": {
     "backgroundTextStyle": "light",
