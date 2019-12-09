@@ -25,6 +25,7 @@ Page({
     m_ys: "",
     m_fg: "",
     m_kw: "",
+    sxtj: "",//筛选条件
     shuaixuan: "",
     leixing: [
       { value: "", name: "不限" },
@@ -154,7 +155,7 @@ Page({
     }
   },
   sure: function () {
-    var shuaixuan = this.data.shuaixuan;
+    var shuaixuan = "";
     var m_lx = "";
     var m_hx = "";
     var m_mj = "";
@@ -162,7 +163,6 @@ Page({
     var m_fg = "";
     var m_kw = "";
     if (this.data.lx){
-     // shuaixuan.push(this.data.lx);
       var shuaixuan = shuaixuan + " leixing=" + this.data.lx;
       var m_lx = this.data.m_lx + "，";
     }
@@ -191,7 +191,8 @@ Page({
     app.showModel();
     var self = this;
     self.setData({
-      shuaixuan: m_kw+m_lx + m_hx + m_mj + m_ys + m_fg ,
+      shuaixuan: shuaixuan,
+      sxtj: m_kw +m_lx + m_hx + m_mj + m_ys + m_fg ,
     });
     wx.request({
       url: http_url + shuaixuan,
@@ -264,7 +265,7 @@ Page({
     var self = this;
     var pageid = self.data.page + 1;
     var shuaixuan = this.data.shuaixuan;
-
+    console.log(shuaixuan);
     wx.request({
       url: http_url + shuaixuan + "&page=" + pageid,
       method: 'GET',

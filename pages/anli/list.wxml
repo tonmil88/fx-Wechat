@@ -1,7 +1,7 @@
 <!-- 筛选 开始-->
 
   <view class="btn search dropdown-toggle" data-toggle="dropdown" bindtap="showMenu">
-    <image class="kind-list-img" src="../../images/form.png"></image>筛选：<span>{{shuaixuan}}</span>
+    <image class="kind-list-img" src="../../images/form.png"></image>筛选：<span>{{sxtj}}</span>
   </view>
   <scroll-view class="sx" scroll-y="true" wx:if="{{flag}}">
     <view class="sxbj" bindtap="showMenu"></view>
