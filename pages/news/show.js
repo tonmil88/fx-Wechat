@@ -2,7 +2,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 var app = getApp();
 
-var http_url = app.globalData.http_api + "&param=list action=content module=news id=";
+var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=content module=news id=";
 
 var member_url = app.globalData.member_api;
  
@@ -14,6 +14,7 @@ Page({
       supports: 0,
       upsImg:"../../icons/ups.png",
       collectImg:"../../icons/collect.png",
+      shareImg: "../../icons/share.png",
   },
   onLoad:function(options){
 
@@ -27,7 +28,6 @@ Page({
         dataType: 'json',
         method: 'GET',
         success: function (res) {
-
 
           if (res.data.code == 1) {
 
@@ -52,13 +52,10 @@ Page({
             })
           }
 
-
-
         }
       })
   },
    getCommentList:function(){//评论跳转
-
       wx.navigateTo({
         url: '../news/comment?id='+this.data.content.id
      })
@@ -98,8 +95,29 @@ Page({
          }
        }
      });
+   },
+  /**
+* 用户点击右上角分享（index.js）
+*/
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target);
+    }
+    return {
+      title: this.data.content.title,
+      path: '../news/show?id=' + this.data.content.id,  // 路径，传递参数到指定页面。
+      imageUrl: this.data.content.thumb, // 分享的封面图
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
 
-   }
-
+  }
 
 })

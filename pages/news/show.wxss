@@ -87,3 +87,5 @@ image.news-cimg{
     margin-top:30rpx;
 }
 
+button.share{ background:rgba(0,0,0,0); padding: 0;margin: 0;display: flex;align-items: center;word-break: break-all;overflow: auto;}
+button.share::after{border: 0px;}

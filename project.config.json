@@ -58,6 +58,14 @@
 					"id": -1,
 					"name": "pages/anli/list",
 					"pathName": "pages/anli/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/news/show",
+					"pathName": "pages/news/show",
+					"query": "id=456",
 					"scene": null
 				}
 			]
