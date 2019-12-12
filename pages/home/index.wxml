@@ -37,7 +37,7 @@
   </view>
 </view>
 
-
+<navigator url="../designer/designer">设计师列表</navigator>
 
 
 </view>

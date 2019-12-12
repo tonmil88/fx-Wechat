@@ -1,0 +1,44 @@
+<view class="container-designer">
+  <view class="designer-pickers">
+    <view class="picker-items">
+      <picker bindchange="bindPickerChange_dg" value="{{objectDesingers[index_dg].value}}" range="{{objectDesingers}}" range-key="{{'name'}}">
+        <view class="desiner-pickers">
+          {{objectDesingers[index_dg].name}}
+        </view>
+      </picker>
+
+      <picker bindchange="bindPickerChange_fg" value="{{objectFengge[index_dg].value}}" range="{{objectFengge}}" range-key="{{'name'}}">
+        <view class="desiner-pickers">
+          {{objectFengge[index_fg].name}}
+        </view>
+      </picker>
+
+      <!-- <picker bindchange="bindPickerChange_ph" value="{{objectPaihang[index_dg].value}}" range="{{objectPaihang}}" range-key="{{'name'}}">
+        <view class="desiner-pickers">
+          {{objectPaihang[index_ph].name}}
+        </view>
+      </picker> -->
+    </view>
+  </view>
+  <view class="designer-lists">
+    <view class="designer-list" wx:for="{{designerData}}">
+      <navigator>
+        <view class="designerName">
+          <view class="name">{{item.username}}</view>
+          <text>首席设计师</text>
+        </view>
+        <view class="designerIntroduce">
+          <text class="title">擅长风格：</text>
+          <text class="detail"> 现代简约, 美式,新中式 欧式,</text>
+        </view>
+        <image src="{{item.avatar}}"></image>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="pl-bottom">
+  <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
+    <image src="../../icons/waiting.gif" /> 正在加载....</view>
+  <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
+</view>
+</view>
