@@ -14,6 +14,8 @@ Page({
     index_dg: 0,
     index_fg: 0,
     shuaixuan:"",//筛选条件
+    designerFlag:true,//显示设计师类型
+    fenggeFlag: true,//显示擅长风格
     designerData:[],
     objectDesingers: [
       { value: "", name: "不限" },
@@ -33,27 +35,35 @@ Page({
       { value: "ty", name: "田园" },
       { value: "fs", name: "法式" },
     ],
-    objectPaihang: [
-      { value: "", name: "不限" },
-      { value: "家装", name: "家装" },
-      { value: "公装", name: "公装" },
-      { value: "别墅", name: "别墅" },
-      { value: "店铺", name: "店铺" },
-    ],
+
   },
+  showPicker_dg:function(){
+    this.setData({
+      designerFlag:false,
+    })
+  },
+
+  showPicker_fg: function () {
+    console.log(2332)
+    this.setData({
+      fenggeFlag: false
+    })
+  },
+
   bindPickerChange_dg: function (e) {
-    console.log(this.data.objectDesingers[e.detail.value].value)
-    var shuaixuan = "sjscc=%" + this.data.objectDesingers[e.detail.value].value + "%"
+    var judge = this.data.objectDesingers[e.detail.value].value 
+    var shuaixuan = " sjscc=" + this.data.objectDesingers[e.detail.value].value
     this.setData({
       index_dg: e.detail.value,
       shuaixuan: shuaixuan
     })
+    console.log(this.data.shuaixuan)
     wx.request({
-      url: http_url,
+      url: http_url + this.data.shuaixuan,
       method: 'GET',
       success: (res) => {
         wx.hideLoading();
-        console.log(res.data);
+        console.log(res.data.return);
         if (res.data.code == 1) {
           this.setData({
             designerData: res.data.return,
@@ -68,19 +78,22 @@ Page({
         }
       }
     })
+
   },
   bindPickerChange_fg: function (e) {
-    var shuaixuan = "sjsfg=%" + this.data.objectFengge[e.detail.value].value + "%"
+    var judge = this.data.objectFengge[e.detail.value].value
+    var shuaixuan = " LIKE_sjsfg=%" + this.data.objectFengge[e.detail.value].value + "%"
     this.setData({
       index_fg: e.detail.value,
       shuaixuan: shuaixuan
     })
+    console.log(this.data.shuaixuan)
     wx.request({
-      url: http_url,
+      url: http_url + this.data.shuaixuan,
       method: 'GET',
       success: (res) => {
         wx.hideLoading();
-        console.log(res.data);
+        console.log(res.data.return);
         if (res.data.code == 1) {
           this.setData({
             designerData: res.data.return,
@@ -170,32 +183,30 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    app.showModel();
     wx.showLoading({
       title: '正在玩命加载中',
     })
-    var shuaixuan = this.data.shuaixuan, pageid = this.data.page+1
+    var shuaixuan = this.data.shuaixuan, pageid = this.data.page + 1, oldData = this.data.designerData, self = this
       wx.request({
         url: http_url+shuaixuan+"&page="+pageid,
         method: 'GET',
         success: (res) => {
           wx.hideLoading();
-          var oldData = self.data.designerData;
           console.log(res.data);
           if (res.data.code == 1) {
             if (res.data.return.length == 0) {
-              self.setData({
+                self.setData({
                 hasMore: "true",
                 hidden: false
               });
               setTimeout(function () {
-                this.setData({
+                self.setData({
                   hasMore: "false",
                   hidden: true
                 });
               }, 900)
             }else{
-              this.setData({
+              self.setData({
                 designerData: oldData.concat(res.data.return),
                 page: pageid,
                 hidden: true,

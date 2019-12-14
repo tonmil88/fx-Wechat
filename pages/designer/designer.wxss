@@ -25,13 +25,25 @@ page {
 
 .container-designer .designer-pickers .picker-items picker {
   position: relative;
+  height: 100rpx;
   width: 50%;
   text-align: center;
   font-size: 32rpx;
 }
+.container-designer .designer-pickers .picker-items picker .picker-nav{
+  position: absolute;
+  color: red;
+  width:100%;
+  height: 100%;
+  z-index: 100;
+  font-size: 32rpx;
+
+}
 .desiner-pickers{
    border-right: 1rpx solid #ccc;
+   z-index: 10;
 }
+
 
 .container-designer .designer-pickers picker::after {
   position: absolute;

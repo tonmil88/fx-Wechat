@@ -1,23 +1,20 @@
 <view class="container-designer">
   <view class="designer-pickers">
     <view class="picker-items">
-      <picker bindchange="bindPickerChange_dg" value="{{objectDesingers[index_dg].value}}" range="{{objectDesingers}}" range-key="{{'name'}}">
-        <view class="desiner-pickers">
+      <picker bindchange="bindPickerChange_dg" value="{{objectDesingers[index_dg].value}}" range="{{objectDesingers}}" range-key="{{'name'}}" class="desiner-pickers">
+        <view class="picker-nav" bindtap="showPicker_dg" wx:if="{{designerFlag}}">设计师类型</view>
+        <view class="picker" hidden="{{designerFlag}}">
           {{objectDesingers[index_dg].name}}
         </view>
       </picker>
 
-      <picker bindchange="bindPickerChange_fg" value="{{objectFengge[index_dg].value}}" range="{{objectFengge}}" range-key="{{'name'}}">
-        <view class="desiner-pickers">
+      <picker bindchange="bindPickerChange_fg" value="{{objectFengge[index_dg].value}}" range="{{objectFengge}}" range-key="{{'name'}}" class="desiner-pickers">
+      <view class="picker-nav" bindtap="showPicker_fg" wx:if="{{fenggeFlag}}">擅长风格</view>
+        <view class="picker" hidden="{{fenggeFlag}}">
           {{objectFengge[index_fg].name}}
         </view>
       </picker>
 
-      <!-- <picker bindchange="bindPickerChange_ph" value="{{objectPaihang[index_dg].value}}" range="{{objectPaihang}}" range-key="{{'name'}}">
-        <view class="desiner-pickers">
-          {{objectPaihang[index_ph].name}}
-        </view>
-      </picker> -->
     </view>
   </view>
   <view class="designer-lists">
