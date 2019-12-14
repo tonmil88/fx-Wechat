@@ -62,10 +62,16 @@
 					"scene": null
 				},
 				{
+<<<<<<< HEAD
 					"id": 1,
 					"name": "pages/news/show",
 					"pathName": "pages/news/show",
 					"query": "id=456",
+=======
+					"id": -1,
+					"name": "pages/designer/designer",
+					"pathName": "pages/designer/designer",
+>>>>>>> a445f75cb957cba83420704300f58999c85a1830
 					"scene": null
 				}
 			]
