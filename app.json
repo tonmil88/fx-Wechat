@@ -46,6 +46,12 @@
         "selectedIconPath": "icons/news-on.png"
       },
       {
+        "pagePath": "pages/designer/designer",
+        "text": "设计师",
+        "iconPath": "icons/news.png",
+        "selectedIconPath": "icons/news-on.png"
+      },
+      {
         "pagePath": "pages/member/index",
         "text": "会员",
         "iconPath": "icons/user.png",
