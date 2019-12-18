@@ -9,7 +9,7 @@
       </picker>
 
       <picker bindchange="bindPickerChange_fg" value="{{objectFengge[index_dg].value}}" range="{{objectFengge}}" range-key="{{'name'}}" class="desiner-pickers">
-      <view class="picker-nav" bindtap="showPicker_fg" wx:if="{{fenggeFlag}}">擅长风格</view>
+        <view class="picker-nav" bindtap="showPicker_fg" wx:if="{{fenggeFlag}}">擅长风格</view>
         <view class="picker" hidden="{{fenggeFlag}}">
           {{objectFengge[index_fg].name}}
         </view>
@@ -21,12 +21,12 @@
     <view class="designer-list" wx:for="{{designerData}}">
       <navigator>
         <view class="designerName">
-          <view class="name">{{item.username}}</view>
-          <text>首席设计师</text>
+          <view class="name">{{item.zsname}}</view>
+          <text>{{item.sjscc_name}}</text>
         </view>
         <view class="designerIntroduce">
           <text class="title">擅长风格：</text>
-          <text class="detail"> 现代简约, 美式,新中式 欧式,</text>
+          <text class="detail">{{item.sjsfg_name}}</text>
         </view>
         <image src="{{item.avatar}}"></image>
       </navigator>
@@ -34,8 +34,8 @@
   </view>
 
   <view class="pl-bottom">
-  <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
-    <image src="../../icons/waiting.gif" /> 正在加载....</view>
-  <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
-</view>
+    <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
+      <image src="../../icons/waiting.gif" /> 正在加载....</view>
+    <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
+  </view>
 </view>

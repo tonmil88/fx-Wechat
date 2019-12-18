@@ -1,6 +1,6 @@
 // pages/designer/designer.js
 var app = getApp();
-var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=space groupid=5  more=2 page=1 pagesize=10";
+var http_url = app.globalData.http_api + "&function=dr_sjs_list&param=list action=space groupid=5  more=2 page=1 pagesize=10";
 Page({
 
   /**
@@ -183,9 +183,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    wx.showLoading({
-      title: '正在玩命加载中',
-    })
+    // wx.showLoading({
+    //   title: '正在玩命加载中',
+    // })
+    this.setData({
+      hidden: false
+    });
     var shuaixuan = this.data.shuaixuan, pageid = this.data.page + 1, oldData = this.data.designerData, self = this
       wx.request({
         url: http_url+shuaixuan+"&page="+pageid,
