@@ -14,7 +14,8 @@
     "pages/news/comment",
     "pages/anli/list",
     "pages/anli/show",
-    "pages/designer/designer"
+    "pages/designer/designer",
+    "pages/zhuanti/zhuanti"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,55 @@
+<view class="container-zhuanti">
+  <!-- tab导航栏 -->
+  <scroll-view class="nav">
+    <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+      <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav">{{navItem.text}}</view>
+    </block>
+  </scroll-view>
+  <view style="height:90rpx;"></view>
+  <!-- 页面内容 -->
+  <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+    <!-- 文章 -->
+    <swiper-item class="tab-content">
+      <scroll-view class="news-item" scroll-y="true" bindscrolltolower="xiala">
+        <block wx:for-item="news" wx:for="{{listData}}">
+          <navigator url="../news/show?id={{news.id}}">
+            <view class="news-view">
+              <image src="{{news.thumb}}" wx:if="{{news.thumb!=''}}" />
+              <view class="news-content">
+                <view class="news-title">
+                  {{news.title}}
+                </view>
+                <view class="pos">
+                  <view class="news-time">{{news.inputtime}}</view>
+                  <view class="fr">
+                    <view class="news-see">
+                      <image src="../../icons/see.png" /> {{news.hits}}
+                    </view>
+                    <view class="news-pl">
+                      <image src="../../icons/message.png" /> {{news.comments}}
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+        
+      <view class="pl-bottom">
+        <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
+          <image src="../../icons/waiting.gif" /> 正在加载....</view>
+        <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
+      </view>
+      </scroll-view>
+
+    </swiper-item>
+    <!-- 视频 -->
+    <swiper-item class="tab-content">
+      <scroll-view scroll-y="true">视频</scroll-view>
+    </swiper-item>
+    <!-- 问答 -->
+    <swiper-item class="tab-content">
+      <scroll-view scroll-y="true">问答</scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
