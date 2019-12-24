@@ -15,7 +15,8 @@
     "pages/anli/list",
     "pages/anli/show",
     "pages/designer/designer",
-    "pages/zhuanti/zhuanti"
+    "pages/zhuanti/zhuanti",
+    "pages/activity/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
