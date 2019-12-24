@@ -1,13 +1,15 @@
 var app = getApp();//获取app
 
-var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=news page=1 pagesize=10";
-
+var http_urlwz = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=news page=1 pagesize=10";
+var http_urlwd = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=wenda page=1 pagesize=10";
 Page({
   data: {
-    listData: [],
-    hidden: true,
+    listDatawz: [],
+    listDatawd: [],
     page: 1,
+    hidden: true,
     hasMore: "false",
+    flag:false,
     navData: [
       {
         text: '文章'
@@ -21,19 +23,23 @@ Page({
     ],
     currentTab: 0,
   },
+  showLoad:function(e){
+    console.log(e)
+  },
   //事件处理函数
   onLoad: function (options) {
     app.showModel();
     var self = this;
+    // 文章
     wx.request({
-      url: http_url,
+      url: http_urlwz,
       method: 'GET',
       success: function (res) {
         wx.hideLoading();
         console.log(res.data);
         if (res.data.code == 1) {
           self.setData({
-            listData: res.data.return,
+            listDatawz: res.data.return,
             page: 1
           });
         } else {
@@ -47,6 +53,30 @@ Page({
       }
 
     })
+    // 问答
+    wx.request({
+      url: http_urlwd,
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading();
+        console.log(res.data.return);
+        if (res.data.code == 1) {
+          self.setData({
+            listDatawd: res.data.return,
+            page: 1
+          });
+        } else {
+          console.log(res.data.msg);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg
+          })
+        }
+
+      }
+
+    })
+
   },
   onReachBottom: function () {
     wx.showLoading({
@@ -55,10 +85,10 @@ Page({
     this.setData({ hidden: false });
     var self = this;
     var pageid = self.data.page + 1;
-    var oldData = this.data.listData;
-
+    // 文章
+    var oldDatawz = this.data.listDatawz;
     wx.request({
-      url: http_url + "&page=" + pageid,
+      url: http_urlwz + "&page=" + pageid,
       method: 'GET',
       success: function (res) {
 
@@ -77,7 +107,44 @@ Page({
             }, 900)
           } else {
             self.setData({
-              listData: oldData.concat(res.data.return) ,
+              listDatawz: oldDatawz.concat(res.data.return) ,
+              hidden: true,
+              page: pageid
+            });
+          }
+        } else {
+          console.log(res.data.msg);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg
+          })
+        }
+
+      }
+    })
+    // 问答
+    var oldDatawd = this.data.listDatawd;
+    wx.request({
+      url: http_urlwd + "&page=" + pageid,
+      method: 'GET',
+      success: function (res) {
+        console.log(12)
+        wx.hideLoading();
+        if (res.data.code == 1) {
+          if (res.data.return.length == 0) {
+            self.setData({
+              hasMore: "true",
+              hidden: false
+            });
+            setTimeout(function () {
+              self.setData({
+                hasMore: "false",
+                hidden: true
+              });
+            }, 900)
+          } else {
+            self.setData({
+              listDatawd: oldDatawd.concat(res.data.return),
               hidden: true,
               page: pageid
             });
@@ -99,7 +166,6 @@ Page({
   switchNav(e) {
     console.log(e);
     var cur = e.currentTarget.dataset.current;
-    //每个tab选项宽度占1/3
     if (this.data.currentTab == cur) {
       return false;
     } else {
@@ -113,5 +179,6 @@ Page({
     this.setData({
       currentTab: cur,
     });
-  }
+  },
+
 })

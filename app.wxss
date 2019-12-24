@@ -14,7 +14,6 @@
 .fr{
     float: right;
     overflow: hidden;
-   
 }
 
 .video-see,.news-see{
@@ -71,6 +70,5 @@ view.news-ups image{
 }
 .hidden image{
     width: 32rpx;
-    height: 32rpx;
-    
+    height: 32rpx;  
 }
