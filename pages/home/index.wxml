@@ -37,7 +37,7 @@
   </view>
 </view>
 
-<navigator url="../zhuanti/zhuanti">设计师列表</navigator>
+<navigator url="../zhuanti/zhuanti">装修课堂</navigator>
 <navigator url="../activity/list">活动列表</navigator>
 
 
