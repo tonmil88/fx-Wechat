@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "专题",
-  "usingComponents": {}
+  "usingComponents": {
+    "load-info": "../component/reachbottomLoading/reachbottomLoading"
+  }
 }
