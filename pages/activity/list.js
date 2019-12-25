@@ -1,7 +1,9 @@
 var app = getApp(); //获取app
 
 var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=activity page=1 pagesize=10";
-var mob_url = app.globalData.http_api + "&function=dr_linkage_array&param=list action=linkage code=address";
+var region_url = app.globalData.http_api + "&function=dr_linkage_array&param=list action=linkage code=address";
+var type_url = app.globalData.mobile_api + "&function=dr_hanshu&param=function&name=dr_field_options_id&p1=332";
+
 Page({
 
   /** 
@@ -19,21 +21,13 @@ Page({
     m_lx: "",
     sxtj: "",//筛选条件
     shuaixuan: "",
-    organisers: [],
-    leixing: [
-      { value: "", name: "不限" },
-      { value: "1", name: "拼装团购" },
-      { value: "2", name: "优惠券" },
-      { value: "3", name: "装修打折" },
-      { value: "4", name: "赠送礼品" },
-      { value: "5", name: "转介绍优惠" },
-      { value: "6", name: "充值返现" },
-    ]
+    region: [],
+    leixing: []
   },
-  radioChange_organisers: function (e) {
-    var items = this.data.organisers;
+  radioChange_region: function (e) {
+    var items = this.data.region;
     for (let i = 0, len = items.length; i < len; ++i) {
-      if (items[i].value === e.detail.value) {
+      if (items[i].value == e.detail.value) {
         var m_md = items[i].name;
       }
     }
@@ -46,7 +40,7 @@ Page({
   radioChange_leixing: function (e) {
     var items = this.data.leixing;
     for (let i = 0, len = items.length; i < len; ++i) {
-      if (items[i].value === e.detail.value) {
+      if (items[i].value == e.detail.value) {
         var m_lx = items[i].name;
       }
     }
@@ -74,14 +68,14 @@ Page({
     var m_md = "";
     var m_lx = "";
     if (this.data.md) {
-      var shuaixuan = shuaixuan + " region =" + this.data.md;
+      var shuaixuan = shuaixuan + " region=" + this.data.md;
       var m_md = this.data.m_md + "，";
     }
     if (this.data.lx) {
-      var shuaixuan = shuaixuan + " type=" + this.data.lx;
+      var shuaixuan = shuaixuan + " LIKE_type=%" + this.data.lx + "%";
       var m_lx = this.data.m_lx + "，";
     }
-    
+
     console.log(shuaixuan);
     this.data.flag = false;
     app.showModel();
@@ -117,6 +111,7 @@ Page({
       }
 
     })
+    
   },
 
   /**
@@ -127,11 +122,20 @@ Page({
     app.showModel();
     var self = this;
     wx.request({
-      url: mob_url,
+      url: region_url,
       method: 'GET',
       success : function (res) {
         self.setData({
-          organisers: res.data.return,
+          region: res.data.return,
+        });
+      }
+    })
+    wx.request({
+      url: type_url,
+      method: 'GET',
+      success: function (res) {
+        self.setData({
+          leixing: res.data.return,
         });
       }
     })

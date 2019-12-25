@@ -9,8 +9,8 @@
     <view class="out_line">
         <view class="line_left">门店:</view>
         <view class="line_right nav4">
-          <radio-group bindchange="radioChange_organisers">
-            <label class="weui-cell weui-check__label" wx:for="{{organisers}}" wx:key="{{item.value}}" data-field="{{item.name}}">
+          <radio-group bindchange="radioChange_region">
+            <label class="weui-cell weui-check__label" wx:for="{{region}}" wx:key="{{item.value}}" data-field="{{item.name}}">
               <view class="weui-cell__hd">
                 <radio value="{{item.value}}" checked="" />
               </view>
