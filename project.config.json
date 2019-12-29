@@ -65,6 +65,13 @@
 					"id": -1,
 					"name": "pages/designer/designer",
 					"pathName": "pages/designer/designer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/anli/anli-info",
+					"pathName": "pages/anli/anli-info",
 					"scene": null
 				}
 			]
