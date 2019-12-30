@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-<!--pages/component/reachbottomLoading/reachbottomLoading.wxml-->
-<text>pages/component/reachbottomLoading/reachbottomLoading.wxml</text>
-=======
   <view class="pl-bottom">
     <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
       <image src="../../icons/waiting.gif" /> 正在加载....</view>
     <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
   </view>
->>>>>>> 26d7f4013c7b7edeb75476eadac59bdf6f058f24

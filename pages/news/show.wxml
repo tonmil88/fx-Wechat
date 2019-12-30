@@ -26,9 +26,6 @@
     <view  class="pl-flex" bindtap="collect">
      <image src="{{collectImg}}"></image>
     </view>
-    <button class="share"  open-type="share" >
-      <image src="{{shareImg}}"></image>
-    </button>
 </view>
 
 
