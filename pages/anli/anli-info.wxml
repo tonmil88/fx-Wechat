@@ -1,0 +1,28 @@
+<view class="container-anli-info">
+  <view class="designer-kj">
+    <view class="title">佛山右岸春天</view>
+    <view class="anli-detail">
+      <text>四居室</text>｜
+      <text>现代简约</text>｜
+      <text>143㎡</text>
+    </view>
+    <view class="imgs">
+      <image class="img-kj" src="{{thumb}}"></image>
+      <image class="img-dn" src="{{avatar}}"></image>
+    </view>
+    <view class="name">{{stylist_name}}</view>
+    <view class="type">本案金牌设计师</view>
+    <button>找他设计</button>
+  </view>
+  <view class="list">
+    <block wx:for="{{anlitu}}" wx:for-item="an">
+      <view  bindtap="handClick" data-index="{{index}}">
+        <view class="list-item">
+          <image src="{{an.file}}"></image>
+          <view class="discribe">
+            <text>#{{an.title}}#</text>{{an.des}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

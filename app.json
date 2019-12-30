@@ -16,8 +16,9 @@
     "pages/anli/show",
     "pages/designer/designer",
     "pages/zhuanti/zhuanti",
-	"pages/activity/list",
-	"pages/component/reachbottomLoading/reachbottomLoading"
+    "pages/activity/list",
+    "pages/component/reachbottomLoading/reachbottomLoading",
+    "pages/anli/anli-info"
   ],
   "window": {
     "backgroundTextStyle": "light",

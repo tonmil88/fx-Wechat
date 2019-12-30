@@ -1,1 +1,14 @@
+<<<<<<< HEAD
 /* pages/component/reachbottomLoading/reachbottomLoading.wxss */
+=======
+.hidden{
+    text-align: center
+}
+.hidden image{
+    width: 32rpx;
+    height: 32rpx;  
+}
+.pl-bottom {
+  margin-top: 30rpx;
+}
+>>>>>>> 26d7f4013c7b7edeb75476eadac59bdf6f058f24
