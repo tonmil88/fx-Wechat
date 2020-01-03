@@ -234,6 +234,7 @@ Page({
       url: http_url,
       method: 'GET',
       success: function(res) {
+        console.log(res.data.return)
         wx.hideLoading();
         console.log(res.data);
         if (res.data.code == 1) {

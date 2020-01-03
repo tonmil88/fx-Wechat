@@ -76,6 +76,7 @@ Page({
        dataType: 'text',
        method: 'POST',
        success: function (sc) {
+         console.log(sc)
          if (sc == 1) {
            wx.showModal({
              showCancel: false,

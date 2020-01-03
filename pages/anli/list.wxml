@@ -92,7 +92,7 @@
   <view class="anli-list">
     <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
       <view class="anli-item">
-        <navigator url="../anli/anli-info?id={{anli.id}}&thumb={{anli.thumb}}&avatar={{anli.avatar}}&stylist_name={{anli.stylist_name}}">
+        <navigator url="../anli/anli-info?id={{anli.id}}&thumb={{anli.thumb}}&avatar={{anli.avatar}}&stylist_name={{anli.stylist_name}}&huxing={{anli.huxing}}&area={{anli.area}}&style={{anli.style}}">
           <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"></image>
           <view class="anli-info">
             <view class="title">{{anli.title}}</view>
