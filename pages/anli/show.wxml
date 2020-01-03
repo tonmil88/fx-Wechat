@@ -4,7 +4,7 @@
     <block wx:for="{{anlitu}}" wx:key="*this">
       <swiper-item>
         <view class="swiper-item {{item}}">
-          <image src="{{anlitu[idx].file}}" />
+          <image src="{{item.file}}" />
         </view>
         <view class="anli-detail-content" style="color:white;padding:40rpx 20rpx;">
           <text class=".anli-detail-content-tilte">#{{item.title}}#</text>

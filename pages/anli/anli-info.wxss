@@ -35,7 +35,6 @@
 .img-kj {
   width: 100%;
   height: 100%;
-  background-color: green;
 }
 
 .img-dn {
@@ -46,7 +45,6 @@
   width: 140rpx;
   height: 140rpx;
   border-radius: 50%;
-  background-color: red;
 }
 
 .name {
@@ -80,7 +78,6 @@ button {
 .list-item image {
   width: 100%;
   height: 399rpx;
-  background-color: green;
 }
 
 .list-item .discribe {

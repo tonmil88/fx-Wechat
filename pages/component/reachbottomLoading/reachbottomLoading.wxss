@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-/* pages/component/reachbottomLoading/reachbottomLoading.wxss */
-=======
+
 .hidden{
     text-align: center
 }
@@ -11,4 +9,3 @@
 .pl-bottom {
   margin-top: 30rpx;
 }
->>>>>>> 26d7f4013c7b7edeb75476eadac59bdf6f058f24
