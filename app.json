@@ -18,7 +18,8 @@
     "pages/zhuanti/zhuanti",
     "pages/activity/list",
     "pages/component/reachbottomLoading/reachbottomLoading",
-    "pages/anli/anli-info"
+    "pages/anli/anli-info",
+    "pages/wenda/wenda"
   ],
   "window": {
     "backgroundTextStyle": "light",

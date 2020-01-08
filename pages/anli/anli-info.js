@@ -128,7 +128,6 @@ Page({
     var self = this;
     wx.request({
       url: member_url + '&s=anli&c=api&m=favorite&id=' + self.data.id,
-
       data: {
         is_ajax: 1,
       },
@@ -180,6 +179,5 @@ Page({
         console.log("转发失败:" + JSON.stringify(res));
       }
     }
-
   }
 })
