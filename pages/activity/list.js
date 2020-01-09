@@ -22,7 +22,16 @@ Page({
     sxtj: "",//筛选条件
     shuaixuan: "",
     region: [],
-    leixing: []
+    leixing: [],
+    navData: [
+      {
+        text: '文章'
+      },
+      {
+        text: '视频'
+      },
+    ],
+    currentTab: 0,
   },
   radioChange_region: function (e) {
     var items = this.data.region;
@@ -211,6 +220,23 @@ Page({
 
       }
     })
-  }
+  },
+  switchNav(e) {
+    console.log(e);
+    var cur = e.currentTarget.dataset.current;
+    if (this.data.currentTab == cur) {
+      return false;
+    } else {
+      this.setData({
+        currentTab: cur
+      })
+    }
+  },
+  switchTab(e) {
+    var cur = e.detail.current;
+    this.setData({
+      currentTab: cur,
+    });
+  },
 
 })
