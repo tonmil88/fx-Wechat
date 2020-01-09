@@ -8,7 +8,7 @@
         <text>{{area}}㎡</text>
       </view>
       <view class="imgs">
-        <image class="img-kj" src="{{thumb}}"></image>
+        <image class="img-kj"  src="{{thumb}}" mode="widthFix"></image>
         <image class="img-dn" src="{{avatar}}"></image>
       </view>
       <view class="name">{{stylist_name}}</view>
@@ -19,7 +19,7 @@
       <block wx:for="{{anlitu}}" wx:for-item="an">
         <view bindtap="handClick" data-index="{{index}}">
           <view class="list-item">
-            <image src="{{an.file}}"></image>
+            <image src="{{an.file}}" mode="widthFix"></image>
             <view class="discribe">
               <text>#{{an.title}}#</text>{{an.des}}</view>
           </view>

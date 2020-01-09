@@ -15,6 +15,7 @@
     "pages/anli/list",
     "pages/anli/show",
     "pages/designer/designer",
+    "pages/designer/show",
     "pages/zhuanti/zhuanti",
     "pages/activity/list",
     "pages/component/reachbottomLoading/reachbottomLoading",

@@ -79,7 +79,7 @@ button {
 
 .list-item image {
   width: 100%;
-  height: 399rpx;
+
 }
 
 .list-item .discribe {

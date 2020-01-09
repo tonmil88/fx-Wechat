@@ -1,0 +1,151 @@
+.container-wenda {
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  z-index: 100;
+}
+
+.search-bar__form {
+  flex: 1;
+  width: 100%;
+  padding: 14rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.search-bar__form .search-bar__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.search-hidden {
+  display: none;
+}
+
+.search-bar__box {
+  position: relative;
+  display: flex;
+  height: 72rpx;
+  padding: 0 64rpx;
+  background-color: #fff;
+}
+.search-bar image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.icon-search_in-box {
+  position: absolute;
+  left: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon-clear {
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-bar__input {
+  width: 100%;
+  height: 100%;
+  font-size: 32rpx;
+}
+
+.search-bar__cancel-btn {
+  width: 80rpx;
+  color: #576b95;
+  white-space: nowrap;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.search-tab {
+  position: relative;
+  opacity: 0;
+  -webkit-transform: translateY(-20%);
+  transform: translateY(-20%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.search-tab_show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  overflow: hidden;
+}
+
+view{
+  overflow: visible;
+}
+.wrapper .btn {
+  float: left;
+  min-width: 22%;
+  height: 50rpx;
+  font-size: 32rpx;
+  padding: 0;
+  border: 1rpx solid #ccc;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-left: 2.2%;
+}
+
+.lists {
+  position: relative;
+  padding: 20rpx;
+  margin-top: 30rpx;
+  box-sizing: border-box;
+}
+
+.lists .card {
+  position: absolute;
+  width: calc(100% - 40rpx);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 30rpx;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+.lists .card .title {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.lists .card .user {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.lists .card .user image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.lists .card .user .name {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+
+.lists .card .comment {
+  margin-top: 22rpx;
+  font-size: 32rpx;
+}
