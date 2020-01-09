@@ -1,3 +1,4 @@
+
   <view class="pl-bottom">
     <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
       <image src="../../icons/waiting.gif" /> 正在加载....</view>

@@ -22,7 +22,7 @@
   <view class="index-row-index">最新新闻</view>
   <view class="fabu-row">
     
-    <block wx:for="{{fabuData}}" wx:for-item="news" wx:key="index">
+  <block wx:for="{{fabuData}}" wx:for-item="news" wx:key="index">
    <navigator url="../news/show?id={{news.id}}">
    <view class="news-view">
      <image class='news-thumb' src="{{news.thumb}}" wx:if="{{news.thumb!=''}}"/>
@@ -31,14 +31,14 @@
      </view>  
    </view>
    </navigator>
-   </block>
-
-    
+  </block>  
   </view>
+  
 </view>
 
 <navigator url="../zhuanti/zhuanti">装修课堂</navigator>
 <navigator url="../activity/list">活动列表</navigator>
+<navigator url="../wenda/wenda">问答</navigator>
 
 
 </view>

@@ -1,7 +1,6 @@
 var app = getApp();
 var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=news num=2";
 
-
 Page({
 
   /**
@@ -11,7 +10,7 @@ Page({
     sdData: [],
     fabuData: [],
     banners: [
-      'http://oss.e-homes.com.cn/201911/3bfb9a66e0.jpg',
+      'http://www.e-homes.com.cn/statics/gw/pc/pic/tuiguang/taocan2/banner.jpg',
       'http://oss.e-homes.com.cn/201911/030880687f.jpg',
     ],
     icons: [
