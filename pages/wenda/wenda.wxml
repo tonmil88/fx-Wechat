@@ -1,0 +1,47 @@
+<view class="container-wenda">
+  <view class="search">
+    <view class="search-bar">
+      <view class="search-bar__form">
+        <view class="{{inputShowed == true ?'search-bar__box':'search-hidden'}}">
+          <image class="icon-search_in-box" src="/images/search.png"></image>
+          <input type="text" class="search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="{{inputShowed == false ?'search-bar__label':'search-hidden'}}" hidden="{{inputShowed}}" bindtap="showInput">
+           <image class="icon-search" src="/images/search.png"></image>
+          <view class="search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="search-tab {{inputShowed?'search-tab_show':''}}">
+      <!-- <view class="search-tab " animation="{{animationData}}" style="opacity:{{ inputShowed == false?'0':'1'}};overflow:{{inputShowed == false?'':'hidden'}}"> -->
+      <view class="wrapper">
+        <view class="btn" wx-for="{{3}}">卧室</view>
+        <view class="btn" wx-for="{{3}}">卧</view>
+        <view class="btn" wx-for="{{3}}">卧室</view>
+        <view class="btn" wx-for="{{3}}">卧室</view>
+        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
+        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
+        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
+        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="lists">
+    <view class="card">
+      <view class="title">卧室家具摆设有哪些风水要求？</view>
+      <view class="user">
+        <image></image>
+        <view class="name">张飞</view>
+      </view>
+      <view class="comment">
+        在家具摆放风水之中，床的摆放应在三面有墙靠位置 上这种方位为摆放床的最佳位置在卧室家具风水……
+      </view>
+    </view>
+  </view>
+</view>
