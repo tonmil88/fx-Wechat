@@ -62,9 +62,26 @@
 					"scene": null
 				},
 				{
+<<<<<<< HEAD
+					"id": 1,
+					"name": "pages/news/show",
+					"pathName": "pages/news/show",
+					"query": "id=456",
+=======
 					"id": -1,
 					"name": "pages/designer/designer",
 					"pathName": "pages/designer/designer",
+<<<<<<< HEAD
+>>>>>>> a445f75cb957cba83420704300f58999c85a1830
+=======
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/anli/anli-info",
+					"pathName": "pages/anli/anli-info",
+>>>>>>> 26d7f4013c7b7edeb75476eadac59bdf6f058f24
 					"scene": null
 				}
 			]

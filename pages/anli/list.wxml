@@ -1,112 +1,107 @@
 <!-- 筛选 开始-->
 
-  <view class="btn search dropdown-toggle" data-toggle="dropdown" bindtap="showMenu">
-    <image class="kind-list-img" src="../../images/form.png"></image>筛选：<span>{{sxtj}}</span>
-  </view>
-  <scroll-view class="sx" scroll-y="true" wx:if="{{flag}}">
-    <view class="sxbj" bindtap="showMenu"></view>
-    <view class="dropdown-menu" role="menu">
-      <view class="input-group ">
-        <input type="text" placeholder="输入关键字搜索" value="{{m_kw}}" bindchange="radioChange_keyword" data-field="kw"  class="form-control"></input>
-      </view>
-      <view class="out_line">
-        <view class="line_left">类型:</view>
-        <view class="line_right nav0">
-          <radio-group bindchange="radioChange_leixing">
-            <label class="weui-cell weui-check__label" wx:for="{{leixing}}" wx:key="{{item.value}}" data-field="{{item.name}}">
-              <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="" />
-              </view>
-              <view class="weui-cell__bd {{lx==item.value?'active':''}}">{{item.name}}</view>
-            </label>
-          </radio-group>
-
-        </view>
-        <view class="clear"></view>
-      </view>
-      <view class="out_line">
-        <view class="line_left">户型:</view>
-        <view class="line_right nav1">
-          <radio-group bindchange="radioChange_huxing" >
-            <label class="weui-cell weui-check__label" wx:for="{{huxing}}" wx:key="{{item.value}}" >
-              <view class="weui-cell__hd" >
-                <radio value="{{item.value}}" checked="" />
-              </view>
-              <view class="weui-cell__bd {{hx==item.value?'active':''}}">{{item.name}}</view>
-            </label>
-          </radio-group>
-        </view>
-        <view class="clear"></view>
-      </view>
-      <view class="out_line">
-        <view class="line_left">面积:</view>
-        <view class="line_right nav2">
-          <radio-group bindchange="radioChange_mianji">
-            <label class="weui-cell weui-check__label" wx:for="{{mianji}}" wx:key="{{item.value}}" data-field="{{item.name}}" >
-              <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="" />
-              </view>
-              <view class="weui-cell__bd {{mj==item.value?'active':''}}">{{item.name}}</view>
-            </label>
-          </radio-group>
-        </view>
-        <view class="clear"></view>
-      </view>
-      <view class="out_line">
-        <view class="line_left">预算:</view>
-        <view class="line_right nav3">
-          <radio-group bindchange="radioChange_yusuan">
-            <label class="weui-cell weui-check__label" wx:for="{{yusuan}}" wx:key="{{item.value}}" data-field="{{item.name}}">
-              <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="" />
-              </view>
-              <view class="weui-cell__bd {{ys==item.value?'active':''}}">{{item.name}}</view>
-            </label>
-          </radio-group>
-        </view>
-        <view class="clear"></view>
-      </view>
-      <view class="out_line">
-        <view class="line_left">风格:</view>
-        <view class="line_right nav4">
-          <radio-group bindchange="radioChange_fengge">
-            <label class="weui-cell weui-check__label" wx:for="{{fengge}}" wx:key="{{item.value}}" data-field="{{item.name}}">
-              <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="" />
-              </view>
-              <view class="weui-cell__bd {{fg==item.value?'active':''}}">{{item.name}}</view>
-            </label>
-          </radio-group>
-        </view>
-        <view class="clear"></view>
-      </view>
-      <button wx:if="{{flag}}" bindtap="sure">确认</button>
+<view class="btn search dropdown-toggle" data-toggle="dropdown" bindtap="showMenu">
+  <image class="kind-list-img" src="../../images/form.png"></image>筛选：
+  <span>{{sxtj}}</span>
+</view>
+<scroll-view class="sx" scroll-y="true" wx:if="{{flag}}">
+  <view class="sxbj" bindtap="showMenu"></view>
+  <view class="dropdown-menu" role="menu">
+    <view class="input-group ">
+      <input type="text" placeholder="输入关键字搜索" value="{{m_kw}}" bindchange="radioChange_keyword" data-field="kw" class="form-control"></input>
     </view>
-    
-  </scroll-view>
+    <view class="out_line">
+      <view class="line_left">类型:</view>
+      <view class="line_right nav0">
+        <radio-group bindchange="radioChange_leixing">
+          <label class="weui-cell weui-check__label" wx:for="{{leixing}}" wx:key="{{item.value}}" data-field="{{item.name}}">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="" />
+            </view>
+            <view class="weui-cell__bd {{lx==item.value?'active':''}}">{{item.name}}</view>
+          </label>
+        </radio-group>
+
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="out_line">
+      <view class="line_left">户型:</view>
+      <view class="line_right nav1">
+        <radio-group bindchange="radioChange_huxing">
+          <label class="weui-cell weui-check__label" wx:for="{{huxing}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="" />
+            </view>
+            <view class="weui-cell__bd {{hx==item.value?'active':''}}">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="out_line">
+      <view class="line_left">面积:</view>
+      <view class="line_right nav2">
+        <radio-group bindchange="radioChange_mianji">
+          <label class="weui-cell weui-check__label" wx:for="{{mianji}}" wx:key="{{item.value}}" data-field="{{item.name}}">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="" />
+            </view>
+            <view class="weui-cell__bd {{mj==item.value?'active':''}}">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="out_line">
+      <view class="line_left">预算:</view>
+      <view class="line_right nav3">
+        <radio-group bindchange="radioChange_yusuan">
+          <label class="weui-cell weui-check__label" wx:for="{{yusuan}}" wx:key="{{item.value}}" data-field="{{item.name}}">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="" />
+            </view>
+            <view class="weui-cell__bd {{ys==item.value?'active':''}}">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="out_line">
+      <view class="line_left">风格:</view>
+      <view class="line_right nav4">
+        <radio-group bindchange="radioChange_fengge">
+          <label class="weui-cell weui-check__label" wx:for="{{fengge}}" wx:key="{{item.value}}" data-field="{{item.name}}">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="" />
+            </view>
+            <view class="weui-cell__bd {{fg==item.value?'active':''}}">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <button wx:if="{{flag}}" bindtap="sure">确认</button>
+  </view>
+
+</scroll-view>
 
 <!-- 筛选 结束-->
 
-<scroll-view class="anli-item" scroll-y="true">
-  <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
-    <navigator url="../anli/show?id={{anli.id}}">
-      <view class="anli-view">
-        <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}" />
-        <image class="avatar" src="{{anli.avatar}}" wx:if="{{anli.avatar!=''}}" />
-        <view class="anli-content">
-          <view class="anli-desiner">
-            <span>设计师：{{anli.stylist_name}}</span>
-            <span>{{anli.style_name}}</span>
+<scroll-view scroll-y="true">
+  <view class="anli-list">
+    <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
+      <view class="anli-item">
+        <navigator url="../anli/anli-info?id={{anli.id}}&thumb={{anli.thumb}}&avatar={{anli.avatar}}&stylist_name={{anli.stylist_name}}&huxing={{anli.huxing}}&area={{anli.area}}&style={{anli.style}}">
+          <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"></image>
+          <view class="anli-info">
+            <view class="title">{{anli.title}}</view>
+            <view class="detail">{{anli.stylist_name}}</view>
           </view>
-          <view class="anli-area">
-            <span>{{anli.area}}m²</span>
-            <span>{{anli.price}}万</span>
-          </view>
-        </view>
-        <view class="anli-title">{{anli.title}}</view>
+        </navigator>
       </view>
-    </navigator>
-  </block>
+    </block>
+  </view>
 </scroll-view>
 
 <view class="pl-bottom">

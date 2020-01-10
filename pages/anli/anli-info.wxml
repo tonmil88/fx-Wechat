@@ -1,0 +1,46 @@
+<view class="container-anli-info">
+  <scroll-view scroll-y="true">
+    <view class="designer-kj">
+      <view class="title">佛山右岸春天</view>
+      <view class="anli-detail">
+        <text>{{huxing}}</text>｜
+        <text>{{style}}</text>｜
+        <text>{{area}}㎡</text>
+      </view>
+      <view class="imgs">
+
+        <image class="img-kj"  src="{{thumb}}" mode="widthFix"></image>
+        <image class="img-dn" src="{{avatar}}"></image>
+      </view>
+      <view class="name">{{stylist_name}}</view>
+      <view class="type">本案金牌设计师</view>
+      <button>找Ta设计</button>
+    </view>
+    <view class="list">
+      <block wx:for="{{anlitu}}" wx:for-item="an">
+        <view bindtap="handClick" data-index="{{index}}">
+          <view class="list-item">
+            <image src="{{an.file}}" mode="widthFix"></image>
+            <view class="discribe">
+              <text>#{{an.title}}#</text>{{an.des}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </scroll-view>
+  <view class="pl-bar">
+    <view class="isay" bindtap="getCommentList">我来说两句</view>
+    <view class="pl-flex" bindtap="getCommentList">
+      <image src="../../icons/news-pl.png"></image>
+      <text class="conut-22">{{content.comments}}</text>
+    </view>
+
+    <view class="pl-flex" bindtap="collect">
+      <image src="{{collectImg}}"></image>
+    </view>
+    <button class="share" open-type="share">
+      <image src="{{shareImg}}"></image>
+    </button>
+  </view>
+</view>

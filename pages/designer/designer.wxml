@@ -19,7 +19,7 @@
   </view>
   <view class="designer-lists">
     <view class="designer-list" wx:for="{{designerData}}">
-      <navigator>
+      <navigator url="../designer/show?uid={{item.uid}}">
         <view class="designerName">
           <view class="name">{{item.zsname}}</view>
           <text>{{item.sjscc_name}}</text>

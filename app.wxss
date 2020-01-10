@@ -14,7 +14,6 @@
 .fr{
     float: right;
     overflow: hidden;
-   
 }
 
 .video-see,.news-see{
@@ -27,8 +26,7 @@
     float: left;
      font-size:22rpx;
       color: #a9a9a9; 
-      margin-right: 15rpx;
-    
+      margin-right: 15rpx;  
 }
 view.news-see image{
     width:40rpx;
@@ -38,13 +36,11 @@ view.news-see image{
 view.video-see image{
     width:30rpx;
     height: 30rpx;
-     
 }
 .news-pl{
      float: left;
       font-size:22rpx;
       color: #a9a9a9; 
-      
 }
 view.news-pl image{
     width:30rpx;
