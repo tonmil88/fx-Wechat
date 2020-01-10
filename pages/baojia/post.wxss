@@ -1,0 +1,120 @@
+
+@import "../login/login.wxss";
+
+.userPwd{
+    margin-top: 0;
+    margin-bottom: 30rpx;
+}
+.warp-pos image.yz-pos{
+    width: 190rpx;
+    height: 55rpx;
+     margin-top: -27.5rpx;
+}
+.fw{
+    font-size: 26rpx;
+    color: #bcbdc1;
+    text-align: center;
+    margin-top: 40rpx;
+}
+.fw text{
+     color: #389fcf;
+}
+
+.textarea {
+    height:300rpx;
+
+     box-sizing: border-box;
+    border: 1px solid #d0d0d0;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    padding-left: 20rpx;
+    margin-top: 30rpx;
+    margin-bottom: 50rpx;
+}
+
+/* 顶部 */
+
+.top {
+  width: auto;
+  height: 86rpx;
+  padding: 0 20rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;position: relative;
+  overflow:inherit;
+  /* border-bottom: 1px solid #000; */
+}
+
+.top-text {
+  float: left;
+}
+
+/* 下拉框 */
+
+.top-selected {
+  width: 50%;
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+}
+
+/* 下拉内容 */
+
+.select_box {
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  width: 50%;
+  float: left;
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  overflow: hidden;
+  text-align: left;
+  animation: myfirst 0.5s;
+  font-size: 30rpx;
+  top: 80rpx;
+  left: 0;
+  border: 1px solid #ccc;
+}
+.select_box view{
+  overflow:inherit;
+}
+
+.select_one {
+  padding-left: 20rpx;
+  width: 100%;
+  height: 80rpx;
+  position: relative;
+  line-height: 80rpx;
+  border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* 下拉过度效果 */
+
+@keyframes myfirst {
+  from {
+    height: 0rpx;
+  }
+
+  to {
+    height: 210rpx;
+  }
+}
+.top-selected text{
+    height: 100%;
+  width: 100%;
+  text-align: center;
+}
+/* 下拉图标 */
+
+.top-selected image {
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 20rpx;
+}

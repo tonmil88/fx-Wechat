@@ -20,6 +20,7 @@
     "pages/activity/list",
     "pages/component/reachbottomLoading/reachbottomLoading",
     "pages/anli/anli-info",
+    "pages/baojia/post",
     "pages/wenda/wenda"
   ],
   "window": {
