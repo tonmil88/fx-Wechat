@@ -21,7 +21,9 @@
     "pages/component/reachbottomLoading/reachbottomLoading",
     "pages/anli/anli-info",
     "pages/wenda/wenda",
-    "pages/wenda/wenda-detail/wenda-detail"
+    "pages/wenda/wenda-detail/wenda-detail",
+    "pages/baojia/post",
+    "pages/wenda/wenda"
   ],
   "window": {
     "backgroundTextStyle": "light",

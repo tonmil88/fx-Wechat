@@ -1,0 +1,28 @@
+<view class="login-warp">
+<form bindsubmit="formSubmit">
+<view class="warp-pos">
+ <input  placeholder="房屋面积" type="text" class="userPwd" name="area"/>
+</view>
+<view class='top'>
+  <!-- 下拉框 -->
+  <view class='top-selected' bindtap='bindShowMsg'>
+    <text>{{grade_name}}</text>
+  </view>
+  <!-- 下拉需要显示的列表 -->
+  <view class="select_box" wx:if="{{select}}">
+    <view wx:for="{{grades}}" wx:key="unique">
+      <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+    </view>
+  </view>
+</view>
+<view class="warp-pos">
+ <input  placeholder="您的称呼" type="text" class="userPwd" name="name"/>
+</view>
+<view class="warp-pos">
+ <input  placeholder="请输入手机" type="text" class="userPwd" name="tel"/>
+</view>
+<button style="margin-top:30rpx" class="login-btn" formType="submit" bindtap="add">立即报价</button>
+</form>
+
+</view>
+

@@ -39,6 +39,7 @@
 <navigator url="../zhuanti/zhuanti">装修课堂</navigator>
 <navigator url="../activity/list">活动列表</navigator>
 <navigator url="../wenda/wenda">问答</navigator>
+<navigator url="../baojia/post">报价</navigator>
 
 
 </view>

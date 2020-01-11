@@ -14,7 +14,10 @@ Page({
   },
   tab:function(e){
     console.log(e)
-    var content = e
+    var content = e.currentTarget.dataset
+    this.setData({
+      isTab:true
+    })
   },
   showInput: function() {
     wx.request({
