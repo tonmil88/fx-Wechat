@@ -1,5 +1,4 @@
 var app = getApp();//获取app
-
 var http_urlwz = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=news page=1 pagesize=10";
 var http_urlwd = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=wenda page=1 pagesize=10";
 Page({

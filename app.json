@@ -20,7 +20,8 @@
     "pages/activity/list",
     "pages/component/reachbottomLoading/reachbottomLoading",
     "pages/anli/anli-info",
-    "pages/wenda/wenda"
+    "pages/wenda/wenda",
+    "pages/wenda/wenda-detail/wenda-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

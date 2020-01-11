@@ -1,7 +1,12 @@
 .container-wenda {
   width: 100%;
 }
-
+.search{
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+}
 .search-bar {
   display: flex;
   justify-content: center;
@@ -101,28 +106,34 @@ view{
   margin-top: 20rpx;
   margin-left: 2.2%;
 }
+.wrapper .btn .active{
+  background-color: #E66505;
+  color: #fff;
+}
 
 .lists {
   position: relative;
-  padding: 20rpx;
   margin-top: 30rpx;
+  padding:0 20rpx;
   box-sizing: border-box;
 }
 
 .lists .card {
-  position: absolute;
+  /* position: absolute;
   width: calc(100% - 40rpx);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   z-index: 100;
   padding: 30rpx;
   background-color: #f0f0f0;
+  margin-bottom: 40rpx;
   box-sizing: border-box;
 }
 
 .lists .card .title {
   font-size: 34rpx;
   font-weight: 600;
+  color: #333333;
 }
 
 .lists .card .user {
@@ -137,7 +148,6 @@ view{
   width: 60rpx;
   height: 60rpx;
   border-radius: 50%;
-  background-color: green;
 }
 
 .lists .card .user .name {

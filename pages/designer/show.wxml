@@ -1,43 +1,41 @@
-
-
 <view class="view-postion">
-  <view class="news-title">
-    <image src="{{udata.thumb}}"></image>
-    {{udata.zsname}}
-    {{udata.sjscc_name}}
-    {{udata.sjsfg_name}}
-      <button class="share"  open-type="share" >
-        分享名片
-      </button>
-      <button >
-        找Ta设计
-      </button>
+  <view class="designer-info">
+    <view class="left">
+      <image src="{{udata.thumb}}"></image>
+    </view>
+    <view class="right">
+      <view class="name">{{udata.zsname}}</view>
+      <view class="level"> {{udata.sjscc_name}}</view>
+      <view class="type">{{udata.sjsfg_name}}</view>
+      <view class="btn">
+        <view class="share" open-type="share">
+          分享名片
+        </view>
+        <view class="seek">
+          找Ta设计
+        </view>
+      </view>
+    </view>
   </view>
 
   <view class="zhanshi-ln">
-      设计理念：{{udata.introduction}}
+    设计理念：{{udata.introduction}}
   </view>
-<!-- 筛选 结束-->
-
-<scroll-view scroll-y="true">
-  <view class="anli-list">
-    <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
-      <view class="anli-item">
-        <navigator url="../anli/anli-info?id={{anli.id}}&thumb={{anli.thumb}}&avatar={{anli.avatar}}&stylist_name={{anli.stylist_name}}&huxing={{anli.huxing}}&area={{anli.area}}&style={{anli.style}}">
-          <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"></image>
-          <view class="anli-info">
-            <view class="title">{{anli.title}}</view>
-            <view class="detail">{{anli.stylist_name}}</view>
-          </view>
-        </navigator>
-      </view>
-    </block>
-  </view>
-</scroll-view>
+  <view class="anli-title">设计案例</view>
+  <scroll-view scroll-y="true">
+    <view class="anli-list">
+      <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
+        <view class="anli-item">
+          <navigator url="../anli/anli-info?id={{anli.id}}&thumb={{anli.thumb}}&avatar={{anli.avatar}}&stylist_name={{anli.stylist_name}}&huxing={{anli.huxing}}&area={{anli.area}}&style={{anli.style}}">
+            <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}"></image>
+            <view class="anli-info">
+              <view class="title">{{anli.title}}</view>
+              <view class="detail">{{anli.stylist_name}}</view>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
 
 </view>
-
-
-
-
-

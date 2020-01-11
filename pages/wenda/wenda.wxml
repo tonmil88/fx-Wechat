@@ -10,38 +10,34 @@
           </view>
         </view>
         <label class="{{inputShowed == false ?'search-bar__label':'search-hidden'}}" hidden="{{inputShowed}}" bindtap="showInput">
-           <image class="icon-search" src="/images/search.png"></image>
+          <image class="icon-search" src="/images/search.png"></image>
           <view class="search-bar__text">搜索</view>
         </label>
       </view>
       <view class="search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
     <view class="search-tab {{inputShowed?'search-tab_show':''}}">
-      <!-- <view class="search-tab " animation="{{animationData}}" style="opacity:{{ inputShowed == false?'0':'1'}};overflow:{{inputShowed == false?'':'hidden'}}"> -->
       <view class="wrapper">
-        <view class="btn" wx-for="{{3}}">卧室</view>
-        <view class="btn" wx-for="{{3}}">卧</view>
-        <view class="btn" wx-for="{{3}}">卧室</view>
-        <view class="btn" wx-for="{{3}}">卧室</view>
-        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
-        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
-        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
-        <view class="btn" wx-for="{{3}}">werwerew卧室</view>
+        <block wx:for="{{listDatadh}}" wx:key="{{item.id}}">
+          <view class="btn {{isTab?'active':''}}" bindtap="tab" data-content="{{item.name}}">{{item.name}}</view>
+        </block>
       </view>
     </view>
   </view>
 
 
-  <view class="lists">
-    <view class="card">
-      <view class="title">卧室家具摆设有哪些风水要求？</view>
-      <view class="user">
-        <image></image>
-        <view class="name">张飞</view>
-      </view>
-      <view class="comment">
-        在家具摆放风水之中，床的摆放应在三面有墙靠位置 上这种方位为摆放床的最佳位置在卧室家具风水……
-      </view>
-    </view>
+  <view class="lists" y="true">
+    <block wx:for="{{listDatawd}}" wx:key="{{item.id}}">
+      <navigator class="card" url="./wenda-detail/wenda-detail">
+        <view class="title">{{item.title}}</view>
+        <view class="user">
+          <image src="{{item.avatar}}"></image>
+          <view class="name">{{item.name}}sdf</view>
+        </view>
+        <view class="comment">
+          {{item.description}}
+        </view>
+      </navigator>
+    </block>
   </view>
 </view>

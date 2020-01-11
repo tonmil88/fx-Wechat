@@ -10,6 +10,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": false,
 		"autoAudits": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -24,10 +25,14 @@
 	"libVersion": "2.4.2",
 	"appid": "wxb6df43b36a8a4dba",
 	"projectname": "%E5%AF%8C%E9%80%89%E6%80%A1%E5%AE%B6%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
+	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -44,7 +49,6 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"gamePlugin": {
@@ -62,18 +66,9 @@
 					"scene": null
 				},
 				{
-<<<<<<< HEAD
-					"id": 1,
-					"name": "pages/news/show",
-					"pathName": "pages/news/show",
-					"query": "id=456",
-=======
 					"id": -1,
 					"name": "pages/designer/designer",
 					"pathName": "pages/designer/designer",
-<<<<<<< HEAD
->>>>>>> a445f75cb957cba83420704300f58999c85a1830
-=======
 					"query": "",
 					"scene": null
 				},
@@ -81,7 +76,41 @@
 					"id": -1,
 					"name": "pages/anli/anli-info",
 					"pathName": "pages/anli/anli-info",
->>>>>>> 26d7f4013c7b7edeb75476eadac59bdf6f058f24
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wenda/wenda",
+					"pathName": "pages/wenda/wenda",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wenda/wenda",
+					"pathName": "pages/wenda/wenda",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/activity/list",
+					"pathName": "pages/activity/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wenda/wenda-detail/wenda-detail",
+					"pathName": "pages/wenda/wenda-detail/wenda-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/designer/show",
+					"pathName": "pages/designer/show",
 					"scene": null
 				}
 			]
