@@ -55,20 +55,9 @@
         </view>
         <scroll-view class="anli-item" scroll-y="true">
           <block wx:for="{{listData}}" wx:for-item="anli" wx:key="index">
-            <navigator url="../anli/show?id={{anli.id}}">
+            <navigator url="../activity/show?id={{anli.id}}">
               <view class="anli-view">
                 <image class="bgc" src="{{anli.thumb}}" wx:if="{{anli.thumb!=''}}" />
-                <image class="avatar" src="{{anli.avatar}}" wx:if="{{anli.avatar!=''}}" />
-                <view class="anli-content">
-                  <view class="anli-desiner">
-                    <span>设计师：{{anli.stylist_name}}</span>
-                    <span>{{anli.style_name}}</span>
-                  </view>
-                  <view class="anli-area">
-                    <span>{{anli.area}}m²</span>
-                    <span>{{anli.price}}万</span>
-                  </view>
-                </view>
                 <view class="anli-title">{{anli.title}}</view>
               </view>
             </navigator>

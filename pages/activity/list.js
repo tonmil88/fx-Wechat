@@ -1,6 +1,7 @@
 var app = getApp(); //获取app
 
 var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=activity page=1 pagesize=10";
+var cbz_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=activity page=1 pagesize=10";
 var region_url = app.globalData.http_api + "&function=dr_linkage_array&param=list action=linkage code=address";
 var type_url = app.globalData.mobile_api + "&function=dr_hanshu&param=function&name=dr_field_options_id&p1=332";
 
@@ -25,10 +26,10 @@ Page({
     leixing: [],
     navData: [
       {
-        text: '文章'
+        text: '进行中'
       },
       {
-        text: '视频'
+        text: '筹备中'
       },
     ],
     currentTab: 0,
