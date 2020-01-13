@@ -1,19 +1,22 @@
 .container-wenda {
   width: 100%;
+  padding-top: 140rpx;
 }
 
 .search {
-  /* position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0; */
+  right: 0;
+  overflow: hidden;
+  z-index: 1000;
 }
 
 .search-bar {
   display: flex;
   justify-content: center;
   background-color: #f0f0f0;
-  z-index: 100;
+  z-index: 10;
 }
 
 .search-bar__form {
@@ -87,6 +90,8 @@
   -webkit-transition: 0.3s;
   transition: 0.3s;
   z-index: 10;
+  background-color: #fff;
+  padding-bottom:20rpx; 
 }
 
 .search-tab_show {
@@ -136,9 +141,9 @@ view {
 
 .lists {
   position: relative;
-  margin-top: 30rpx;
   padding: 0 20rpx;
   box-sizing: border-box;
+  z-index: 100;
 }
 
 .lists .card {
@@ -146,7 +151,7 @@ view {
   width: calc(100% - 40rpx);
   left: 50%;
   transform: translateX(-50%); */
-  z-index: 100;
+  /* z-index: 100; */
   padding: 30rpx;
   background-color: #f0f0f0;
   margin-bottom: 40rpx;

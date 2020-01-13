@@ -17,6 +17,7 @@ Page({
     listDatawd: [],//问答
     lx:'',
     shuaixuan:'',
+    id:'',
 
   },
   radioChange_tabs: function (e) {
@@ -25,7 +26,7 @@ Page({
       lx: e.detail.value
     })
     if (this.data.lx) {
-      var shuaixuan = shuaixuan + " keyword=" + this.data.lx;
+      var shuaixuan = shuaixuan + " LIKE_keywords=%" + this.data.lx + "%";
     }
     if (this.data.kw) {
       var shuaixuan = shuaixuan + " LIKE_title=%" + this.data.kw + "%";
@@ -55,11 +56,21 @@ Page({
   },
 
   showInput: function() {
+    var query = wx.createSelectorQuery();
+    //选择id
+    var that = this;
+    query.select('.search').boundingClientRect(function (rect) {
+      console.log(rect.height)
+      that.setData({
+        pad: rect.height
+      })
+    }).exec();
     this.setData({
       inputShowed: true
     });
   },
   hideInput: function() {
+
     this.setData({
       kw: "",
       inputShowed: false
@@ -70,11 +81,40 @@ Page({
       kw: ""
     });
   },
+  tosearch:function(){
+    this.search()
+  },
+  search: function () {
+    var shuaixuan = ""
+    if (this.data.kw) {
+      var shuaixuan = shuaixuan + " LIKE_title=%" + this.data.kw + "%";
+    }
+    wx.request({
+      url: http_urlwd + shuaixuan,
+      method: 'GET',
+      success: (res) => {
+        wx.hideLoading();
+        console.log(res.data.return);
+        if (res.data.code == 1) {
+          this.setData({
+            listDatawd: res.data.return,
+            page: 1
+          });
+        } else {
+          console.log(res.data.msg);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg
+          })
+        }
+      }
+
+    })
+  },
   inputTyping: function(e) {
     this.setData({
       kw: e.detail.value
     });
-    console.log(this.data.kw)
   },
 
   /**
@@ -136,7 +176,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var query = wx.createSelectorQuery();
+    //选择id
+    var that = this;
+    query.select('.search').boundingClientRect(function (rect) {
+      console.log(rect)
+      that.setData({
+        pad: rect.height + 'px'
+      })
+    }).exec();
   },
 
   /**

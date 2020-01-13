@@ -1,24 +1,24 @@
 <view class="container-wenda-detail">
   <view class="card" url="./wenda-detail/wenda-detail">
-    <view class="title">卧室家具摆设有哪些风水要求？</view>
+    <view class="title">{{title}}</view>
     <view class="comment">
-      在家具摆放风水之中，床的摆放应在三面有墙靠位置 上这种方位为摆放床的最佳……
+      {{des}}
     </view>
     <view class="user">
-      <image></image>
-      <view class="name">张飞</view>
+      <image src="{{avatar}}"></image>
+      <view class="name">{{name}}</view>
     </view>
   </view>
   <view class="discuss">
-    <view class="title">全部3条回答</view>
+    <view class="title">全部{{total}}条回答</view>
     <view class="lists">
-      <view class="item">
+      <view class="item" wx:for="{{listData}}" wx:key="{{item.name}}">
         <view class="user">
-          <image></image>
-          <view class="name">张飞</view>
+          <image src="{{item.avatar}}"></image>
+          <view class="name">{{item.author}}sdasd</view>
         </view>
         <view class="comment">
-         在家具摆放风水之中，床的摆放应在三面有墙靠位置上 这种方位为摆放床的最佳位置。在卧室家具风水
+         {{item.jieda}}sd
         </view>
       </view>
     </view>

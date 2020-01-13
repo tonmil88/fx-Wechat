@@ -1,12 +1,12 @@
-<view class="container-wenda">
+<view class="container-wenda" >
   <view class="search">
     <view class="search-bar">
       <view class="search-bar__form">
         <view class="{{inputShowed == true ?'search-bar__box':'search-hidden'}}">
-          <image class="icon-search_in-box" src="/images/search.png"></image>
-          <input type="text" class="search-bar__input" placeholder="搜索" value="{{kw}}" focus="{{inputShowed}}" bindinput="inputTyping" data-field="kw"/>
-          <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-            <icon type="clear" size="14"></icon>
+          <image class="icon-search_in-box" src="/images/search.png" bindtap="search"></image>
+          <input type="text" class="search-bar__input" placeholder="搜索" value="{{kw}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="tosearch" data-field="kw"/>
+          <view class="icon-clear" wx:if="{{kw.length > 0}}" bindtap="clearInput">
+            <image src="/images/cancel.png" ></image>
           </view>
         </view>
         <label class="{{inputShowed == false ?'search-bar__label':'search-hidden'}}" hidden="{{inputShowed}}" bindtap="showInput">
@@ -36,7 +36,7 @@
 
   <view class="lists" y="true">
     <block wx:for="{{listDatawd}}" wx:key="{{item.id}}">
-      <navigator class="card" url="./wenda-detail/wenda-detail">
+      <navigator class="card" url="./wenda-detail/wenda-detail?id={{item.id}}&title={{item.title}}&name={{item.name}}&des={{item.description}}&avatar={{item.avatar}}">
         <view class="title">{{item.title}}</view>
         <view class="user">
           <image src="{{item.avatar}}"></image>
