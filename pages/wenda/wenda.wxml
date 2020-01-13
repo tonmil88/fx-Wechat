@@ -4,7 +4,7 @@
       <view class="search-bar__form">
         <view class="{{inputShowed == true ?'search-bar__box':'search-hidden'}}">
           <image class="icon-search_in-box" src="/images/search.png"></image>
-          <input type="text" class="search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <input type="text" class="search-bar__input" placeholder="搜索" value="{{kw}}" focus="{{inputShowed}}" bindinput="inputTyping" data-field="kw"/>
           <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
             <icon type="clear" size="14"></icon>
           </view>
@@ -18,9 +18,17 @@
     </view>
     <view class="search-tab {{inputShowed?'search-tab_show':''}}">
       <view class="wrapper">
-        <block wx:for="{{listDatadh}}" wx:key="{{item.id}}">
+        <!-- <block wx:for="{{listDatadh}}" wx:key="{{item.id}}">
           <view class="btn {{isTab?'active':''}}" bindtap="tab" data-content="{{item.name}}">{{item.name}}</view>
-        </block>
+        </block> -->
+        <radio-group bindchange="radioChange_tabs">
+          <label class="check__label" wx:for="{{listDatadh}}" wx:key="{{item.name}}">
+            <view class="cell__hd">
+              <radio value="{{item.name}}" checked="" />
+            </view>
+            <view class="cell__bd {{lx==item.name?'active':''}}">{{item.name}}</view>
+          </label>
+        </radio-group>
       </view>
     </view>
   </view>
@@ -39,5 +47,10 @@
         </view>
       </navigator>
     </block>
+  </view>
+  <view class="pl-bottom">
+    <view hidden="{{hidden}}" class="hidden" wx:if="{{hasMore!='true'}}">
+      <image src="../../icons/waiting.gif" /> 正在加载....</view>
+    <view hidden="{{hidden}}" class="hidden" wx:else>没有更多数据了....</view>
   </view>
 </view>

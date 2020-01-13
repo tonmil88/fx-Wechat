@@ -1,0 +1,82 @@
+.container-wenda-detail {
+  padding: 0 20rpx;
+}
+
+.card {
+  padding: 30rpx;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+.card .title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.card .user {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.card .user image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.card .user .name {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+
+.card .comment {
+  margin-top: 22rpx;
+  font-size: 32rpx;
+}
+
+.discuss {
+  margin-top: 80rpx;
+}
+
+.discuss .title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.discuss .item {
+  padding: 30rpx 0;
+  margin-top: 60rpx;
+  border-bottom: 1rpx solid #e3e3e3;
+  box-sizing: border-box;
+}
+
+.discuss .user {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.discuss .user image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.discuss .user .name {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+
+.discuss .comment {
+  margin-top: 22rpx;
+  font-size: 32rpx;
+}

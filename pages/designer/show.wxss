@@ -13,6 +13,8 @@ page {
   padding: 40rpx 34rpx;
   font-size: 34rpx;
   box-sizing: border-box;
+  border-radius: 8rpx;
+  box-shadow: 8rpx 6rpx 6rpx #DDDDDD;
 }
 
 .designer-info .left image {
@@ -60,7 +62,7 @@ page {
 }
 
 .designer-info .right .btn .share {
-  background: linear-gradient(to top, #e66505, #ff8a1b);
+  background: linear-gradient(to top, #E66505, #FF8A1B);
 }
 
 .designer-info .right .btn .seek {
@@ -70,6 +72,7 @@ page {
   padding: 20rpx;
   background-color: #DDDDDD;
   font-size: 26rpx;
+  margin-top: 30rpx;
 }
 .anli-title{
   text-align: center;

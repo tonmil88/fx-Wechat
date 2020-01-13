@@ -7,29 +7,40 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hidden: true,
+    page: 1,
+    hasMore: "false",
+    flag: false,
     inputShowed: false,
-    inputVal: "",
+    kw: "",
     listDatadh: [],//标签
     listDatawd: [],//问答
+    lx:'',
+    shuaixuan:'',
+
   },
-  tab:function(e){
-    console.log(e)
-    var content = e.currentTarget.dataset
+  radioChange_tabs: function (e) {
+    var shuaixuan = ""
     this.setData({
-      isTab:true
+      lx: e.detail.value
     })
-  },
-  showInput: function() {
+    if (this.data.lx) {
+      var shuaixuan = shuaixuan + " keyword=" + this.data.lx;
+    }
+    if (this.data.kw) {
+      var shuaixuan = shuaixuan + " LIKE_title=%" + this.data.kw + "%";
+    }
     wx.request({
-      url: http_urldh,
-      method: 'get',
+      url: http_urlwd + shuaixuan,
+      method: 'GET',
       success: (res) => {
         wx.hideLoading();
+        console.log(res.data.return);
         if (res.data.code == 1) {
           this.setData({
-            listDatadh: res.data.return,
+            listDatawd: res.data.return,
+            page: 1
           });
-          console.log(this.data.listDatadh)
         } else {
           console.log(res.data.msg);
           wx.showModal({
@@ -38,34 +49,39 @@ Page({
           })
         }
       }
-    })
 
+    })
+    console.log('问答类型为：', e.detail.value);
+  },
+
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
   hideInput: function() {
     this.setData({
-      inputVal: "",
+      kw: "",
       inputShowed: false
     });
-    console.log(this.data.inputShowed)
   },
   clearInput: function() {
     this.setData({
-      inputVal: ""
+      kw: ""
     });
   },
   inputTyping: function(e) {
     this.setData({
-      inputVal: e.detail.value
+      kw: e.detail.value
     });
+    console.log(this.data.kw)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 问答
     wx.request({
       url: http_urlwd,
       method: 'GET',
@@ -86,6 +102,26 @@ Page({
         }
       }
 
+    })
+    // 标签
+    wx.request({
+      url: http_urldh,
+      method: 'get',
+      success: (res) => {
+        wx.hideLoading();
+        if (res.data.code == 1) {
+          this.setData({
+            listDatadh: res.data.return,
+          });
+          console.log(this.data.listDatadh)
+        } else {
+          console.log(res.data.msg);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg
+          })
+        }
+      }
     })
   },
 
@@ -127,8 +163,53 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
+    wx.showLoading({
+      title: '正在玩命加载中',
+    })
+    this.setData({
+      hidden: false
+    });
+    var self = this;
+    var pageid = self.data.page + 1;
+    var shuaixuan = this.data.shuaixuan;
+    wx.request({
+      url: http_urlwd + shuaixuan + "&page=" + pageid,
+      method: 'GET',
+      success: function (res) {
+        // console.log(res);
+        wx.hideLoading();
+        var oldData = self.data.listDatawd;
+        if (res.data.code == 1) {
+          if (res.data.return.length == 0) {
+            self.setData({
+              hasMore: "true",
+              hidden: false
+            });
+            setTimeout(function () {
+              self.setData({
+                hasMore: "false",
+                hidden: true
+              });
+            }, 900)
+          } else {
+            self.setData({
+              listDatawd: oldData.concat(res.data.return),
+              hidden: true,
+              page: pageid
+            });
+          }
+        } else {
+          console.log(res.data.msg);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg
+          })
+        }
 
+      }
+    })
+    console.log(this.data.listDatawd);
   },
 
   /**
