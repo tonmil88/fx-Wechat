@@ -1,0 +1,31 @@
+
+
+<view class="view-postion">
+<view class="news-title">
+  {{content.title}}
+ <view>
+ <text class="news-ctime">{{content.inputtime}}</text>
+ <text class="news-local">{{content.cat.name}}</text>
+ <text class="news-count">浏览{{content.hits}}次</text>
+ </view>
+</view>
+<view>发布人：{{content.author}}</view>
+<view>开始时间：{{content.start}}</view>
+<view>结束时间：{{content.end}}</view>
+<view>活动详情：{{content.description}}</view>
+<view>活动场所：{{content.field}}</view>
+<view class="news-zw">
+    <import src="../../wxParse/wxParse.wxml"/>
+<template is="wxParse" data="{{wxParseData:data.nodes}}" />
+</view>
+</view>
+
+<view class="pl-bar">
+    <button class="share"  open-type="share" >
+      <image src="{{shareImg}}"></image>
+    </button>
+</view>
+
+
+
+
