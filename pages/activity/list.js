@@ -1,6 +1,7 @@
 var app = getApp(); //获取app
 
-var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=activity page=1 pagesize=10";
+var http_url = app.globalData.http_api + "&function=dr_activity_jxz&param=list action=module module=activity page=1 pagesize=10";
+var http_url2 = app.globalData.http_api + "&function=dr_activity_cbz&param=list action=module module=activity page=1 pagesize=10";
 var cbz_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=activity page=1 pagesize=10";
 var region_url = app.globalData.http_api + "&function=dr_linkage_array&param=list action=linkage code=address";
 var type_url = app.globalData.mobile_api + "&function=dr_hanshu&param=function&name=dr_field_options_id&p1=332";
@@ -12,8 +13,10 @@ Page({
    */
   data: {
     listData: [],
+    listData2: [],
     hidden: true,
     page: 1,
+    page2: 1,
     hasMore: "false",
     flag: false,
     md: "",
@@ -119,7 +122,32 @@ Page({
           })
         }
       }
-
+    })
+    wx.request({
+      url: http_url2 + shuaixuan,
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading();
+        console.log(res.data);
+        if (res.data.code == 1) {
+          self.setData({
+            listData2: res.data.return,
+            page2: 1,
+            flag: false
+          });
+        } else {
+          console.log(res.data.msg);
+          self.setData({
+            listData2: res.data.return,
+            page2: 1,
+            flag: true
+          });
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg,
+          })
+        }
+      }
     })
     
   },
@@ -167,11 +195,30 @@ Page({
             content: res.data.msg
           })
         }
-
       }
-
+    })
+    wx.request({
+      url: http_url2,
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading();
+        console.log(res.data);
+        if (res.data.code == 1) {
+          self.setData({
+            listData2: res.data.return,
+            page2: 1
+          });
+        } else {
+          console.log(res.data.msg);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.msg
+          })
+        }
+      }
     })
   },
+
   onReachBottom: function () {
 
     app.showModel();

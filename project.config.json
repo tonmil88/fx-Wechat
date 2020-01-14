@@ -111,6 +111,14 @@
 					"id": -1,
 					"name": "pages/designer/show",
 					"pathName": "pages/designer/show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/activity/list",
+					"pathName": "pages/activity/list",
+					"query": "",
 					"scene": null
 				}
 			]
