@@ -1,11 +1,12 @@
 var WxParse = require('../../wxParse/wxParse.js');
 
 var app = getApp();
-
+var member = wx.getStorageSync('member');
 var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=content module=activity id=";
-
+var post_url = app.globalData.mobile_api +"&param=function&name=dr_baoming_form&p1=enroll&p2=";
 var member_url = app.globalData.member_api;
- 
+
+console.log(member);
 
 Page({
   data:{
@@ -15,9 +16,10 @@ Page({
       upsImg:"../../icons/ups.png",
       collectImg:"../../icons/collect.png",
       shareImg: "../../icons/share.png",
-  },
+      formbox:true
+  },    
   onLoad:function(options){
-
+     
       app.showModel();
       var self=this;
       wx.request({
@@ -55,6 +57,45 @@ Page({
         }
       })
   },
+  formSubmit:function(e){
+    console.log(e.detail.value)
+    this.setData({postData:e.detail.value});
+    var self = this;
+    var postParams =  
+      "&data[name]=" + e.detail.value.name
+      + "&data[tel]=" + e.detail.value.tel
+      + "&data[uid]=" + member.uid
+    if(!e.detail.value.tel){
+      wx.showModal({
+        showCancel: false,
+        content: '请输入手机号'
+      })
+    }else{
+      wx.request({
+        url: post_url +this.data.id+postParams,
+        header: {
+          'Content-Type': 'application/json',
+        },
+        dataType: 'json',
+        method: 'GET',
+        success: function (res) {
+          console.log(res.data);
+          if (res.data.result) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'success'
+            })
+          }else{
+            wx.showModal({
+              showCancel: false,
+              content: '您已报名参与'
+            })
+            //console.log(res.data.result);
+          } 
+        }
+      })
+    }  
+},
     
   /**
 * 用户点击右上角分享（index.js）
@@ -77,7 +118,17 @@ Page({
         console.log("转发失败:" + JSON.stringify(res));
       }
     }
-
-  }
-
+  },
+  // 点击事件
+  baoming: function (e) {
+    this.setData({
+      formbox:false
+    })
+  },
+  // 点击事件
+  baoming_close: function (e) {
+    this.setData({
+      formbox:true
+    })
+  },
 })

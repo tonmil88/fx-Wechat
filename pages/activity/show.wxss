@@ -59,7 +59,7 @@ padding-bottom: 100rpx;
 .pl-bar image{
   width: 41rpx;
   height: 41rpx;
-  margin-left: 40rpx;
+  margin: auto;
 } 
 
 
@@ -67,5 +67,17 @@ padding-bottom: 100rpx;
   margin-top:30rpx;
 }
 
-button.share{ background:rgba(0,0,0,0); padding: 0;margin: 0;display: flex;align-items: center;word-break: break-all;overflow: auto;}
+button.share{ background:rgba(0,0,0,0);width:40%;height:80rpx; padding: 0;margin: 0;display: flex;align-items: center;word-break: break-all;overflow: auto;}
 button.share::after{border: 0px;}
+
+button.baoming{width:50%;height:80rpx;color: #fff; font-size: 38rpx; line-height: 78rpx; float: right;  background:linear-gradient(0deg,rgba(230,101,5,1) 0%,rgba(255,138,27,1) 100%);border-radius:40px;}
+
+.formshow{ width: 100vw; height: 100vh;position: fixed; z-index: 999;  top: 0; left: 0; }
+.formshow .bj{width: 100vw; height: 100vh; background:rgba(0,0,0,1);opacity:0.8;}
+.formshow form{ width: 90vw; top: 20vh; left: 5vw; height: auto;background:rgba(255,255,255,1);border-radius:10px; display: table; position: absolute;}
+.formshow form input{background:rgba(240,240,240,1); height: 120rpx; width: 90%; line-height: 120rpx; padding-left: 30rpx;border:1px solid rgba(153,153,153,1); display: block; margin: 0 auto 20rpx auto;border-radius:10px;}
+.formshow form .tt{ width: 100%; height: 80rpx;font-weight:bold;color:rgba(51,51,51,1); text-align: center; padding: 30rpx 0;}
+.formshow form button{background:linear-gradient(0deg,rgba(230,101,5,1) 0%,rgba(255,138,27,1) 100%);border-radius:10px; color: #fff; width: 90%;}
+.formshow form .sm{ font-size: 24rpx;font-family:PingFang SC;font-weight:500;color:rgba(153,153,153,1);text-align: center; padding: 30rpx;}
+
+

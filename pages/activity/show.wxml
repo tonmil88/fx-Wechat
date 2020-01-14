@@ -16,7 +16,7 @@
 <view>活动场所：{{content.field}}</view>
 <view class="news-zw">
     <import src="../../wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:data.nodes}}" />
+  <template is="wxParse" data="{{wxParseData:data.nodes}}" />
 </view>
 </view>
 
@@ -24,8 +24,27 @@
     <button class="share"  open-type="share" >
       <image src="{{shareImg}}"></image>
     </button>
+
+    <button class="baoming"  bindtap='baoming' >
+       立即报名
+    </button>
 </view>
 
 
+<view class="formshow" hidden="{{formbox}}">
+  <view class="bj" bindtap='baoming_close'></view>
+  <form bindsubmit="formSubmit">
+    <view class="tt">活动报名</view>
+    <view class="warp-pos">
+      <input  placeholder="您的称呼" type="text" class="userPwd" name="name"/>
+    </view>
+    <view class="warp-pos">
+      <input  placeholder="输入手机号码" type="text" class="userPwd" name="tel"/>
+    </view>
+    <button style="margin-top:30rpx" class="login-btn" formType="submit" bindtap="add">确认报名</button>
+    <view class="sm">为了您的隐私和我们的声誉，您的信息将严格保密</view>
+  </form>
+  
+</view>
 
 
