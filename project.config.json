@@ -120,6 +120,12 @@
 					"pathName": "pages/activity/list",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index2",
+					"pathName": "pages/home/index2",
+					"scene": null
 				}
 			]
 		}

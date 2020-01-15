@@ -1,45 +1,126 @@
-<view class="index-body">
-
-<swiper class="index-banner" indicator-dots="true" autoplay="true" interval="5000" indicator-color="#fff" indicator-active-color="#e7505a" >
-<block wx:for="{{banners}}" wx:key="index">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image" />
-    </swiper-item>
-  </block>
-</swiper>
-
-<view class="index-icons">
-    <view class="flex-item" wx:for="{{icons}}" wx:key="index">
-    <navigator url="{{item.url}}">
-      <image class='image-icon' src="{{item.icon}}" />
-      <view class='text-icon'>{{item.name}}</view>
-    </navigator>
+<view class="container-index">
+  <view class="swiper-top">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item {{item}}"></view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="info">
+      <view class="pos">
+        <image src="/images/pos.png"></image>
+        <picker bindchange="bindPickerChange_city" value="{{city_index}}" range="{{city}}">
+          <view class="picker">
+            {{city[city_index]}}
+          </view>
+        </picker>
+      </view>
+      <view class="search-bar">
+        <image class="icon-search_in-box" src="/images/search.png"></image>
+        <input type="text" class="search-bar__input" placeholder="搜索你想要的裝修" value="{{inputVal}}" bindinput="inputTyping" />
+        <view class="icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <image src="/images/cancel.png"></image>
+        </view>
+      </view>
     </view>
-</view>
-
-
- <view class="index-row">
-  <view class="index-row-index">最新新闻</view>
-  <view class="fabu-row">
-    
-  <block wx:for="{{fabuData}}" wx:for-item="news" wx:key="index">
-   <navigator url="../news/show?id={{news.id}}">
-   <view class="news-view">
-     <image class='news-thumb' src="{{news.thumb}}" wx:if="{{news.thumb!=''}}"/>
-     <view class="news-title">
-          {{news.title}}
-     </view>  
-   </view>
-   </navigator>
-  </block>  
   </view>
-  
-</view>
-
-<navigator url="../zhuanti/zhuanti">装修课堂</navigator>
-<navigator url="../activity/list">活动列表</navigator>
-<navigator url="../wenda/wenda">问答</navigator>
-<navigator url="../baojia/post">报价</navigator>
-
-
+  <view class="nav-icon">
+    <view class="message">
+      <view>品质保证</view>
+      <view>品质保证</view>
+      <view>品质保证</view>
+      <view>品质保证</view>
+    </view>
+    <view class="icons">
+      <view class="icon" wx:for="{{8}}">
+        <image class="icon-img"></image>
+        <view class="name">计算报价</view>
+      </view>
+    </view>
+    <image class="active-img"></image>
+  </view>
+  <view class="produce">
+    <view class="top">
+      <image class="logo"></image>
+      <view class="content">
+        <view class="active">
+          <text class="label">最新活動</text>
+          <text>佛山旗舰店双十二全场五折优惠</text>
+        </view>
+        <view class="gift">
+          <text class="label">積分禮品</text>
+          <text>分享活动赢取积分兑换百万豪礼</text>
+        </view>
+      </view>
+      <image class="service"></image>
+    </view>
+    <view class="bottom">
+      <view class="left"></view>
+      <view class="right">
+        <view class="in"></view>
+        <view class="out">
+          <view class="qw"></view>
+          <view class="dz"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="anli">
+    <view class="title">装修案例</view>
+    <swiper next-margin="50rpx" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}">
+      <block wx:for="{{3}}">
+        <swiper-item>
+          <view class="item">
+            <image></image>
+            <view class="fg">现代风格</view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="form">
+    <view class="title">在佛山，装修成这样需要花多少钱</view>
+    <view class="select">
+      <view class="area">
+        <input type="text" class="area__input" placeholder="房屋面积" value="{{inputVal}}" />
+        <view class="more">
+          ㎡
+        </view>
+      </view>
+      <view class="type">
+        <!-- <input type="text" class="type_input" placeholder="我家户型" value="{{inputVal}}" /> -->
+        <picker bindchange="bindPickerChange_hx" value="{{objectHx[index_dg].value}}" range="{{objectHx}}" range-key="{{'name'}}" class="type-pickers">
+          <view class="picker-nav" bindtap="showPicker_hx" wx:if="{{fenggeFlag}}">我家户型</view>
+          <view class="picker" hidden="{{fenggeFlag}}">
+            {{objectHx[index_fg].name}}
+          </view>
+        </picker>
+        <view class="more">
+          <image src="/images/arrow_bt.png"></image>
+        </view>
+      </view>
+    </view>
+    <input placeholder="输入手机号码，立即获取报价" value="{{phone}}" class="phone"></input>
+    <view class="btn">立即报价</view>
+  </view>
+  <view class="designer">
+    <view class="title">设计师</view>
+    <swiper display-multiple-items="2" next-margin="102rpx" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}">
+      <block wx:for="{{6}}">
+        <swiper-item>
+          <image></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="brand">
+    <view class="title">品牌实力</view>
+    <image></image>
+  </view>
+  <view class="information">
+    <view class="title">专题资讯</view>
+    <image></image>
+  </view>
+  <view class=""></view>
 </view>
