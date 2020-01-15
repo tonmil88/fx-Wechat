@@ -33,10 +33,10 @@
       <view>品质保证</view>
     </view>
     <view class="icons">
-      <view class="icon" wx:for="{{8}}">
+      <navigator class="icon" wx:for="{{8}}" url="./index2">
         <image class="icon-img"></image>
         <view class="name">计算报价</view>
-      </view>
+      </navigator>
     </view>
     <image class="active-img"></image>
   </view>
