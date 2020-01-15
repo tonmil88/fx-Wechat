@@ -122,10 +122,16 @@
 					"scene": null
 				},
 				{
+<<<<<<< HEAD
 					"id": 9,
 					"name": "pages/activity/show",
 					"pathName": "pages/activity/show",
 					"query": "id=3",
+=======
+					"id": -1,
+					"name": "pages/home/index2",
+					"pathName": "pages/home/index2",
+>>>>>>> 93d25404f56ee4abfe95546a59d0948b0b9733ef
 					"scene": null
 				}
 			]

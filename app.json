@@ -22,7 +22,8 @@
     "pages/anli/anli-info",
     "pages/wenda/wenda",
     "pages/wenda/wenda-detail/wenda-detail",
-    "pages/baojia/post"
+    "pages/baojia/post",
+    "pages/home/index2"
   ],
   "window": {
     "backgroundTextStyle": "light",

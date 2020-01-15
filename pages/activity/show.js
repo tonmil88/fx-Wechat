@@ -2,11 +2,13 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 var app = getApp();
 var member = wx.getStorageSync('member');
-var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=content module=activity id=";
+var http_url = app.globalData.http_api + "&function=dr_activity_content&param=list action=content module=activity id=";
+var ticket_add_url = app.globalData.mobile_api + "&param=function&name=dr_ticket_add";
+var qwe_url = app.globalData.mobile_api + "&param=function&name=dr_qwe";
 var post_url = app.globalData.mobile_api +"&param=function&name=dr_baoming_form&p1=enroll&p2=";
 var member_url = app.globalData.member_api;
 
-console.log(member);
+
 
 Page({
   data:{
@@ -16,10 +18,10 @@ Page({
       upsImg:"../../icons/ups.png",
       collectImg:"../../icons/collect.png",
       shareImg: "../../icons/share.png",
-      formbox:true
+      formbox:true,
+      kaquan:'',
   },    
-  onLoad:function(options){
-     
+  onLoad:function(options){ 
       app.showModel();
       var self=this;
       wx.request({
@@ -30,22 +32,20 @@ Page({
         dataType: 'json',
         method: 'GET',
         success: function (res) {
-
           if (res.data.code == 1) {
-
-            for (var i in res.data.return) {//不使用过滤
+            for (var i in res.data.return) {
+              //不使用过滤
               var c = res.data.return[i];
             }
-
             // 格式化文章内容
             var article = c.content;
-
             WxParse.wxParse('data', 'html', article, self);
-
             self.setData({
               content: c,
+              kaquan: c['kaquan'],
               id: options.id
             })
+            //console.log(c['kaquan']);
             wx.hideToast();
           } else {
             wx.showModal({
@@ -53,7 +53,6 @@ Page({
               content: res.data.msg
             })
           }
-
         }
       })
   },
@@ -130,5 +129,33 @@ Page({
     this.setData({
       formbox:true
     })
+  },
+  // 领取卡券——点击事件
+  ticket_add: function (e) {
+    var ticketid = e.currentTarget.dataset.ticketid;
+    console.log(ticketid);
+    if(!member.uid){
+      wx.showModal({
+        showCancel: false,
+        content: '请先登录再进行领券'
+      })
+    }else{
+      wx.request({
+        url: ticket_add_url +"&p1="+ticketid+"&p2="+member.uid,
+        header: {
+          'Content-Type': 'application/json',
+        },
+        dataType: 'json',
+        method: 'GET',
+        success: function (res) {
+          console.log(res.data);
+          wx.showModal({
+            showCancel: false,
+            content: res.data.result
+          }) 
+        }
+      })
+    }
+
   },
 })

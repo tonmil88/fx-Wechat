@@ -9,6 +9,18 @@
  <text class="news-count">浏览{{content.hits}}次</text>
  </view>
 </view>
+<view class="kaquan">
+    <block wx:for="{{kaquan}}" wx:for-item="kaquan" wx:key="index">
+        <view class="kaquan-view">
+          <image class="bgc" src="{{kaquan.thumb}}" wx:if="{{kaquan.thumb!=''}}" />
+          <view class="kaquan-title">{{kaquan.title}}</view>
+          <button class="baoming"  bindtap='ticket_add' data-ticketid="{{kaquan.id}}">
+            领券
+          </button>
+        </view>
+    </block>
+</view>
+
 <view>发布人：{{content.author}}</view>
 <view>开始时间：{{content.start}}</view>
 <view>结束时间：{{content.end}}</view>
