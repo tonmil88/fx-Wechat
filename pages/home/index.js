@@ -1,4 +1,6 @@
 // pages/component/index/index.js
+var app = getApp();
+var http_url = app.globalData.http_api + "&function=dr_my_list&param=list action=module module=news num=2";
 Page({
 
   /**

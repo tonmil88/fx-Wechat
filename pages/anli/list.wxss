@@ -132,77 +132,10 @@ button {
   margin: 0 10rpx -7rpx 0;
 }
 
-/* .anli-item {
-  padding-top: 60rpx;
-  width: 100%;
-}
-
-.anli-view {
-  position: relative;
-  height: 340rpx;
-  display: flex;
-  border-bottom: 1px solid #eee;
-  margin: 40rpx 30rpx;
-  border-radius: 10rpx;
-}
-
-.anli-view .avatar {
-  position: absolute;
-  left: 10rpx;
-  top: 10rpx;
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
-}
-
-.anli-view .bgc {
-  z-index: -99;
-  width: 100%;
-  height: 100%;
-}
-
-.anli-content {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 30%;
-  height: 70%;
-  margin-left: 20rpx;
-  font-size: 26rpx;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 0 0 5px 5px;
-  padding: 20rpx 10rpx 10rpx;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.anli-content view {
-  height: 50%;
-}
-
-.anli-content view span {
-  display: block;
-  line-height: 50rpx;
-}
-
-.anli-title {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 64rpx;
-  line-height: 64rpx;
-  overflow: hidden;
-  font-size: 32rpx;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
-} */
-
 .anli-list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   padding: 0 4rpx;
   box-sizing: border-box;
 }
@@ -210,7 +143,7 @@ button {
 .anli-list .anli-item {
   width: calc(50% - 20rpx);
   background-color: #fff;
-  margin-top: 20rpx;
+  margin: 20rpx 10rpx 0;
 }
 
 .anli-list .anli-item image {

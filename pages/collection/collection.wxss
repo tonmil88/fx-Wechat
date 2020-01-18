@@ -1,0 +1,152 @@
+/**index.wxss**/
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container-collection {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40rpx;
+}
+
+.container-collection .nav {
+  height: 90rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 90rpx;
+  background: #f7f7f7;
+  font-size: 16px;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  border-bottom: 2rpx solid #eee;
+  border-top: 2rpx solid #eee;
+}
+
+.container-collection .nav .nav-item {
+  width: calc(100% / 6);
+  height: 86rpx;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 2rpx;
+  line-height: 86rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container-collection .nav .nav-item.active {
+  color: red;
+  border-bottom: 4rpx solid red;
+}
+
+.container-collection .tab-box {
+  width: 100%;
+  height: calc(100% - 90rpx);
+  box-sizing: border-box;
+}
+
+.container-collection .tab-box swiper-item.tab-content {
+  color: #000;
+}
+
+.container-collection .tab-box swiper-item.tab-content .news-item {
+  width: 100%;
+   height: inherit;
+}
+/* 文章&问答 */
+.container-collection .tab-box swiper-item.tab-content .news-item .news-view {
+  padding: 30rpx 0 30rpx 0;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin: 0 30rpx 0 30rpx;
+}
+
+.container-collection .tab-box swiper-item.tab-content .news-item  .news-view>image {
+  width: 241rpx;
+  height: 148rpx;
+}
+
+.container-collection .tab-box swiper-item.tab-content .news-item .news-view .news-content {
+  margin-left: 20rpx;
+  width: 100%;
+  font-size: 28rpx;
+}
+
+.container-collection .tab-box swiper-item.tab-content .news-item .news-view .news-title {
+  line-height: 45rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  padding-bottom: 30rpx;
+}
+
+.container-collection .pos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-collection .pos .fr {
+  display: flex;
+}
+/* 案例 */
+.anli-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4rpx;
+  box-sizing: border-box;
+}
+
+.anli-list .anli-item {
+  width: calc(50% - 20rpx);
+  background-color: #fff;
+  margin: 20rpx 10rpx 0;
+  border:1rpx solid #e3e3e3;
+  box-sizing: border-box;
+}
+
+.anli-list .anli-item image {
+  width: 100%;
+  height: 259rpx;
+}
+
+.anli-info {
+  height: 121rpx;
+  padding: 15rpx 6rpx;
+  box-sizing: border-box;
+}
+
+.anli-info .title {
+  font-size: 32rpx;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.anli-info .detail {
+  font-size: 26rpx;
+  text-align: right;
+  margin-top: 10rpx;
+}
+
+/* 文章 */
+.wenzhang .pos {
+  margin-top: 24rpx;
+}
+/* 视频 */
+
+/* 问答 */
+.wenda .news-title{
+  padding-bottom: 4rpx !important;
+  font-weight: 600;
+}
+
+/* 加载项 */
+.pl-bottom {
+  margin-top: 30rpx;
+}

@@ -4,7 +4,7 @@ var md5 = require("utils/md5.js");
 var member = wx.getStorageSync('member');
 
 // 网站域名
-var poscms_domain = "http://e-homes.com.cn";
+var poscms_domain = "https://www.e-homes.com.cn";
 // 网站密钥
 var poscms_sys_key = "49CBBCDBE234930362B7";
 // 移动端api密钥
